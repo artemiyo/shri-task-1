@@ -35,7 +35,7 @@ function js() {
 }
 
 function css() {
-    const source = './src/scss/*.scss'
+    const source = './src/scss/index.scss'
 
     return src(source)
         .pipe(changed(source))
