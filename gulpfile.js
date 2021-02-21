@@ -5,9 +5,11 @@ const changed = require("gulp-changed");
 const clean = require("gulp-clean");
 const concat = require("gulp-concat");
 const sass = require("gulp-sass");
+const babel = require("gulp-babel");
+const imagemin = require('gulp-imagemin');
 
 function clear() {
-    return src(['./build/*.js', './build/*.css'], {
+    return src('./build', {
         read: false,
     })
         .pipe(clean())
@@ -25,6 +27,9 @@ function js() {
     return src(source)
         .pipe(changed(source))
         .pipe(concat('stories.js'))
+        .pipe(babel({
+            presets: ["@babel/env"]
+        }))
         .pipe(dest('./build'))
         .pipe(browsersync.stream())
 }
@@ -42,6 +47,18 @@ function css() {
         .pipe(concat('stories.css'))
         .pipe(dest('./build'))
         .pipe(browsersync.stream())
+}
+
+function images() {
+    return src(['./src/assets/images/*'])
+        .pipe(imagemin())
+        .pipe(dest('./build/assets/images/'))
+        .pipe(browsersync.stream());
+};
+
+function fonts() {
+    return src('./src/assets/fonts/*')
+        .pipe(dest('./build/assets/fonts'))
 }
 
 function watchFiles() {
@@ -65,6 +82,8 @@ watchFiles()
 task('html', html)
 task('css', css);
 task('js', js);
+task("images", images);
+task("fonts", fonts);
 task('watch', browserSync);
-task('build', series(clear, html, parallel(css, js)));
-task('dev', series('build', "watch"))
+task('build', series(clear, html, parallel(css, js), fonts, images));
+task('dev', series('build', 'watch'))
