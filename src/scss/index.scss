@@ -1,2 +1,54 @@
 @import "./fonts.scss";
 @import "./base.scss";
+@import "./heading.scss";
+
+@import "./components/person.scss";
+
+@import "./slides/leader.scss";
+
+.leaders {
+  height: 100%;
+
+  &__list {
+    margin: auto auto 0 auto;
+    position: relative;
+    width: 120px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &:not(:first-child) {
+      position: absolute;
+      bottom: 0;
+    }
+
+    &:nth-child(1) {
+      position: relative;
+      z-index: 100;
+    }
+
+    &:nth-child(2) {
+      left: 108px;
+      z-index: 2;
+    }
+
+    &:nth-child(3) {
+      right: 108px;
+      z-index: 2;
+    }
+
+    &:nth-child(4) {
+      left: 218px;
+      z-index: 1;
+    }
+
+    &:nth-child(5) {
+      right: 218px;
+      z-index: 1;
+    }
+  }
+}

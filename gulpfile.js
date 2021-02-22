@@ -16,7 +16,7 @@ function clear() {
 }
 
 function html() {
-    return src('./src/*.html')
+    return src('./src/index.html')
         .pipe(dest('./build'))
         .pipe(browsersync.stream())
 }
@@ -50,9 +50,9 @@ function css() {
 }
 
 function images() {
-    return src(['./src/assets/images/*'])
+    return src(['./src/assets/images/*/*.jpg'])
         .pipe(imagemin())
-        .pipe(dest('./build/assets/images/'))
+        .pipe(dest('./build/assets/images'))
         .pipe(browsersync.stream());
 };
 

@@ -30,3 +30,19 @@
     }
   }
 }
+
+// Bar Chart Primary
+
+@mixin bar-chart-secondary($height: 325px) {
+  background: var(--bar-chart__secondary-background);
+  box-shadow: var(--bar-chart__secondary-shadow);
+  width: var(--bar-chart-width);
+  height: $height;
+}
+
+@mixin bar-chart-primary($height: 325px) {
+  background: var(--bar-chart__primary-background);
+  box-shadow: var(--bar-chart__primary-shadow);
+  width: var(--bar-chart-width);
+  height: $height;
+}

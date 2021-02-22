@@ -1,0 +1,81 @@
+.person {
+  margin-top: auto;
+  &--winner {
+    position: relative;
+    &::before {
+      position: absolute;
+      display: block;
+      content: "👑";
+      top: -32px;
+      left: 32%;
+      transform: translate(-50%, -50%);
+      transform: rotate(-5deg);
+      font-size: 32px;
+      color: var(--color-white);
+      z-index: 2;
+    }
+  }
+
+  &__photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    filter: var(--photo--grayscale);
+  }
+
+  &__info {
+    margin-top: 6px;
+    text-align: center;
+
+    & span {
+      display: block;
+    }
+  }
+
+  &__name {
+    width: 120px;
+    height: 36px;
+    font-size: 16px;
+    color: var(--color-white);
+  }
+
+  &__count {
+    font-size: 14px;
+    color: var(--color-light-grey);
+    margin-top: 6px;
+  }
+
+  &__place {
+    margin-top: 16px;
+    height: 100%;
+    border-radius: 6px 6px 0 0;
+    min-height: 108px;
+
+    &--first {
+      @include bar-chart-primary;
+    }
+
+    &--second {
+      @include bar-chart-secondary(275px);
+    }
+
+    &--third {
+      @include bar-chart-secondary(225px);
+    }
+
+    &--fourth {
+      @include bar-chart-secondary(175px);
+    }
+
+    &--fifth {
+      @include bar-chart-secondary(125px);
+    }
+
+    &-number {
+      display: block;
+      font-size: 30px;
+      color: var(--color-white);
+      padding-top: 18px;
+    }
+  }
+}

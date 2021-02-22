@@ -1,0 +1,14 @@
+.heading {
+  width: 300px;
+
+  &--primary {
+    color: var(--headline-color);
+    font-size: var(--headline-font-size);
+    margin-bottom: 8px;
+  }
+
+  &--secondary {
+    color: var(--subhead-secondary-color);
+    font-size: var(--subhead-font-size);
+  }
+}
