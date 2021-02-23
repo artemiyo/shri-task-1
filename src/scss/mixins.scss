@@ -1,6 +1,7 @@
+// Media Queries
 @mixin respond($breakpoint) {
   @if $breakpoint == vertical-phone-min {
-    @media only screen and (min-width: 320px) and (max-width: 375px) {
+    @media only screen and (max-width: 320px) {
       @content;
     }
   }
@@ -25,7 +26,7 @@
     }
   }
   @if $breakpoint == horizontal-desktops {
-    @media only screen and (min-width: 1920) {
+    @media only screen and (min-width: 1920px) {
       @content;
     }
   }
