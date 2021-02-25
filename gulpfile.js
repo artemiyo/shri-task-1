@@ -63,8 +63,8 @@ function fonts() {
 
 function watchFiles() {
     watch('./src/*.html', html)
-    watch('./src/scss/*', css);
-    watch('./src/js/*', js);
+    watch('./src/scss/**/*.scss', css);
+    watch('./src/js/**/*.js', js);
     watch('./src/*.html').on("change", browsersync.reload)
 }
 

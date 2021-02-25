@@ -37,15 +37,35 @@
 
     @each $i in 2, 4 {
       @each $j in 3, 5 {
-        &:not(:first-child) {
-          &:nth-child(#{$j}) {
-            right: calc(104px * (#{$j - 1}) / 2);
-            z-index: #{5 - $j};
+        &:nth-child(#{$j}) {
+          right: calc(104px * (#{$j - 1}) / 2);
+          z-index: #{5 - $j};
+
+          .person {
+            &__place-number,
+            &__info {
+              @include relative-right(6px);
+            }
           }
 
-          &:nth-child(#{$i}) {
-            left: calc(104px * #{$i / 2});
-            z-index: #{4 - $i};
+          @include respond(vertical-phone-min) {
+            right: calc(88px * (#{$j - 1}) / 2);
+          }
+        }
+
+        &:nth-child(#{$i}) {
+          left: calc(104px * #{$i / 2});
+          z-index: #{4 - $i};
+
+          .person {
+            &__place-number,
+            &__info {
+              @include relative-left(6px);
+            }
+          }
+
+          @include respond(vertical-phone-min) {
+            left: calc(88px * #{$i / 2});
           }
         }
       }
