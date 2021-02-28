@@ -11,7 +11,12 @@
     }
   }
   @if $breakpoint == vertical-tab-min {
-    @media only screen and (min-width: 414px) and (max-width: 767px) {
+    @media only screen and (min-width: 414px) and (max-width: 575px) {
+      @content;
+    }
+  }
+  @if $breakpoint == vertical-tab-big {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
       @content;
     }
   }
@@ -34,19 +39,15 @@
 
 // Bar Chart Primary
 
-@mixin bar-chart-secondary($height: 325px) {
-  background: var(--bar-chart__secondary-background);
-  box-shadow: var(--bar-chart__secondary-shadow);
+@mixin bar-chart($height: 325px, $type: "secondary") {
+  background: var(--bar-chart__#{$type}-background);
+  box-shadow: var(--bar-chart__#{$type}-shadow);
   width: var(--bar-chart-width);
   height: $height;
+  min-height: 108px;
 }
 
-@mixin bar-chart-primary($height: 325px) {
-  background: var(--bar-chart__primary-background);
-  box-shadow: var(--bar-chart__primary-shadow);
-  width: var(--bar-chart-width);
-  height: $height;
-}
+// Bar Chart positioning
 
 @mixin relative-left($left) {
   position: relative;

@@ -1,39 +1,26 @@
-@charset "UTF-8";
-@font-face {
-  font-family: "Roboto 700";
-  src: url("./assets/fonts/Roboto Bold.eot");
-  src: url("./assets/fonts/Roboto Bold.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Roboto Bold.woff2") format("woff2"), url("./assets/fonts/Roboto Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-stretch: normal;
-  unicode-range: U+0020-2044; }
-
 @font-face {
   font-family: "Roboto 400";
-  src: url("./assets/fonts/Roboto.eot");
-  src: url("./assets/fonts/Roboto.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Roboto.woff2") format("woff2"), url("./assets/fonts/Roboto.woff") format("woff");
+  src: url("assets/fonts/Roboto-Regular.eot");
+  src: url("assets/fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Roboto-Regular.ttf") format("truetype"), url("assets/fonts/Roboto-Regular.woff2") format("woff2"), url("assets/fonts/Roboto-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
-  font-stretch: normal;
-  unicode-range: U+0020-2044; }
+  font-stretch: normal; }
 
 @font-face {
-  font-family: "Roboto Medium";
-  src: url("./assets/fonts/Roboto Medium.eot");
-  src: url("./assets/fonts/Roboto Medium.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Roboto Medium.woff2") format("woff2"), url("./assets/fonts/Roboto Medium.woff") format("woff");
+  font-family: "Roboto 500";
+  src: url("assets/fonts/Roboto-Medium.eot");
+  src: url("assets/fonts/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Roboto-Medium.ttf") format("truetype"), url("assets/fonts/Roboto Medium.woff2") format("woff2"), url("assets/fonts/Roboto Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
-  font-stretch: normal;
-  unicode-range: U+0020-2044; }
+  font-stretch: normal; }
 
 @font-face {
-  font-family: "Roboto Bold";
-  src: url("./assets/fonts/Roboto Bold.eot");
-  src: url("./assets/fonts/Roboto Bold.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Roboto Bold.woff2") format("woff2"), url("./assets/fonts/Roboto Bold.woff") format("woff");
-  font-weight: 900;
+  font-family: "Roboto 700";
+  src: url("assets/fonts/Roboto-Bold.eot");
+  src: url("assets/fonts/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Roboto-Bold.ttf") format("truetype"), url("assets/fonts/Roboto-Bold.woff2") format("woff2"), url("assets/fonts/Roboto-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
-  font-stretch: normal;
-  unicode-range: U+0020-2044; }
+  font-stretch: normal; }
 
 :root {
   --color-black: #261c00;
@@ -125,12 +112,16 @@ body {
 .heading {
   width: 300px; }
   .heading--primary {
+    font-family: "Roboto 700";
     color: var(--headline-color);
     font-size: var(--headline-font-size);
-    margin-bottom: 8px; }
+    width: 100%; }
   .heading--secondary {
+    font-family: "Roboto 500";
     color: var(--subhead-secondary-color);
-    font-size: var(--subhead-font-size); }
+    font-size: var(--caption-font-size);
+    margin-top: 8px;
+    width: 100%; }
 
 .person {
   margin-top: auto; }
@@ -147,28 +138,22 @@ body {
     align-items: center; }
   .person__photo {
     width: 64px;
-    height: 64px; }
+    height: 64px;
+    position: relative; }
     .person__photo img {
       width: 100%;
       height: 100%;
       -webkit-filter: var(--photo--grayscale);
       filter: var(--photo--grayscale);
       border-radius: 50%; }
-    .person__photo__winner {
-      position: relative; }
-      .person__photo__winner::before {
-        position: absolute;
-        display: block;
-        content: "👑";
-        font-size: 32px;
-        line-height: 32px;
-        left: 0;
-        right: 0;
-        -webkit-transform: rotate(-5deg);
-        transform: rotate(-5deg);
-        bottom: calc(100% - 10px);
-        color: var(--color-white);
-        z-index: 2; }
+    .person__photo__emoji {
+      position: absolute;
+      width: 104px;
+      height: 32px;
+      font-size: 32px;
+      line-height: 32px;
+      left: -18px;
+      bottom: calc(100% - 10px); }
   .person__data {
     margin-top: 6px;
     text-align: center; }
@@ -200,7 +185,8 @@ body {
       -webkit-box-shadow: var(--bar-chart__primary-shadow);
       box-shadow: var(--bar-chart__primary-shadow);
       width: var(--bar-chart-width);
-      height: 325px; }
+      height: 325px;
+      min-height: 108px; }
       @media only screen and (max-width: 340px) {
         .person__place--1 {
           background: var(--bar-chart__primary-background);
@@ -208,118 +194,199 @@ body {
           box-shadow: var(--bar-chart__primary-shadow);
           width: var(--bar-chart-width);
           height: 225px;
+          min-height: 108px;
           width: 100px; } }
     .person__place--2 {
       background: var(--bar-chart__secondary-background);
       -webkit-box-shadow: var(--bar-chart__secondary-shadow);
       box-shadow: var(--bar-chart__secondary-shadow);
       width: var(--bar-chart-width);
-      height: calc(325px - 1 * 50px); }
+      height: calc(325px - 1 * 50px);
+      min-height: 108px; }
       @media only screen and (max-width: 340px) {
         .person__place--2 {
           background: var(--bar-chart__secondary-background);
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: 175px;
+          height: 125px - 1 * 50px;
+          min-height: 108px;
           width: 100px; } }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .person__place--2 {
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: 305px;
+          min-height: 108px; } }
     .person__place--4 {
       background: var(--bar-chart__secondary-background);
       -webkit-box-shadow: var(--bar-chart__secondary-shadow);
       box-shadow: var(--bar-chart__secondary-shadow);
       width: var(--bar-chart-width);
-      height: 225px; }
+      height: 225px;
+      min-height: 108px; }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .person__place--4 {
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: 225px;
+          min-height: 108px; } }
       @media only screen and (max-width: 340px) {
         .person__place--4 {
           background: var(--bar-chart__secondary-background);
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: 125px;
+          height: 175px;
+          min-height: 108px;
           width: 100px; } }
     .person__place--2 {
       background: var(--bar-chart__secondary-background);
       -webkit-box-shadow: var(--bar-chart__secondary-shadow);
       box-shadow: var(--bar-chart__secondary-shadow);
       width: var(--bar-chart-width);
-      height: calc(325px - 1 * 50px); }
+      height: calc(325px - 1 * 50px);
+      min-height: 108px; }
       @media only screen and (max-width: 340px) {
         .person__place--2 {
           background: var(--bar-chart__secondary-background);
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: 175px;
+          height: 125px - 1 * 50px;
+          min-height: 108px;
           width: 100px; } }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .person__place--2 {
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: 305px;
+          min-height: 108px; } }
     .person__place--5 {
       background: var(--bar-chart__secondary-background);
       -webkit-box-shadow: var(--bar-chart__secondary-shadow);
       box-shadow: var(--bar-chart__secondary-shadow);
       width: var(--bar-chart-width);
-      height: 225px; }
+      height: 225px;
+      min-height: 108px; }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .person__place--5 {
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: 225px;
+          min-height: 108px; } }
       @media only screen and (max-width: 340px) {
         .person__place--5 {
           background: var(--bar-chart__secondary-background);
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: 125px;
+          height: 175px;
+          min-height: 108px;
           width: 100px; } }
     .person__place--3 {
       background: var(--bar-chart__secondary-background);
       -webkit-box-shadow: var(--bar-chart__secondary-shadow);
       box-shadow: var(--bar-chart__secondary-shadow);
       width: var(--bar-chart-width);
-      height: calc(325px - 2 * 50px); }
+      height: calc(325px - 2 * 50px);
+      min-height: 108px; }
       @media only screen and (max-width: 340px) {
         .person__place--3 {
           background: var(--bar-chart__secondary-background);
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: 175px;
+          height: 125px - 2 * 50px;
+          min-height: 108px;
           width: 100px; } }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .person__place--3 {
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: 305px;
+          min-height: 108px; } }
     .person__place--4 {
       background: var(--bar-chart__secondary-background);
       -webkit-box-shadow: var(--bar-chart__secondary-shadow);
       box-shadow: var(--bar-chart__secondary-shadow);
       width: var(--bar-chart-width);
-      height: 225px; }
+      height: 225px;
+      min-height: 108px; }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .person__place--4 {
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: 225px;
+          min-height: 108px; } }
       @media only screen and (max-width: 340px) {
         .person__place--4 {
           background: var(--bar-chart__secondary-background);
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: 125px;
+          height: 175px;
+          min-height: 108px;
           width: 100px; } }
     .person__place--3 {
       background: var(--bar-chart__secondary-background);
       -webkit-box-shadow: var(--bar-chart__secondary-shadow);
       box-shadow: var(--bar-chart__secondary-shadow);
       width: var(--bar-chart-width);
-      height: calc(325px - 2 * 50px); }
+      height: calc(325px - 2 * 50px);
+      min-height: 108px; }
       @media only screen and (max-width: 340px) {
         .person__place--3 {
           background: var(--bar-chart__secondary-background);
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: 175px;
+          height: 125px - 2 * 50px;
+          min-height: 108px;
           width: 100px; } }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .person__place--3 {
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: 305px;
+          min-height: 108px; } }
     .person__place--5 {
       background: var(--bar-chart__secondary-background);
       -webkit-box-shadow: var(--bar-chart__secondary-shadow);
       box-shadow: var(--bar-chart__secondary-shadow);
       width: var(--bar-chart-width);
-      height: 225px; }
+      height: 225px;
+      min-height: 108px; }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .person__place--5 {
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: 225px;
+          min-height: 108px; } }
       @media only screen and (max-width: 340px) {
         .person__place--5 {
           background: var(--bar-chart__secondary-background);
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: 125px;
+          height: 175px;
+          min-height: 108px;
           width: 100px; } }
     .person__place-number {
       display: block;

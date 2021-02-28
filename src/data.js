@@ -1,4 +1,4 @@
-[
+const data = [
 	{
 		"alias": "leaders",
 		"data": {
@@ -229,3 +229,5 @@
 		}
 	}
 ]
+
+export default data

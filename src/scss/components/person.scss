@@ -1,4 +1,4 @@
-@import "../mixins.scss";
+@import "../helpers/mixins.scss";
 
 .person {
   margin-top: auto;
@@ -12,6 +12,7 @@
   &__photo {
     width: 64px;
     height: 64px;
+    position: relative;
 
     img {
       width: 100%;
@@ -20,21 +21,14 @@
       border-radius: 50%;
     }
 
-    &__winner {
-      position: relative;
-      &::before {
-        position: absolute;
-        display: block;
-        content: "👑";
-        font-size: 32px;
-        line-height: 32px;
-        left: 0;
-        right: 0;
-        transform: rotate(-5deg);
-        bottom: calc(100% - 10px);
-        color: var(--color-white);
-        z-index: 2;
-      }
+    &__emoji {
+      position: absolute;
+      width: 104px;
+      height: 32px;
+      font-size: 32px;
+      line-height: 32px;
+      left: -18px;
+      bottom: calc(100% - 10px);
     }
   }
 
@@ -76,9 +70,10 @@
     min-height: 108px;
 
     &--1 {
-      @include bar-chart-primary;
+      @include bar-chart(325px, "primary");
+
       @include respond(vertical-phone-min) {
-        @include bar-chart-primary(225px);
+        @include bar-chart(225px, "primary");
         width: 100px;
       }
     }
@@ -86,20 +81,29 @@
     @each $i in 2, 3 {
       @each $j in 4, 5 {
         $width: calc(325px - #{$i - 1} * 50px);
+
         &--#{$i} {
-          @include bar-chart-secondary($width);
+          @include bar-chart($width);
 
           @include respond(vertical-phone-min) {
-            @include bar-chart-secondary(175px);
+            @include bar-chart(125px - #{$i - 1} * 50px);
             width: 100px;
+          }
+
+          @include respond(vertical-tab-big) {
+            @include bar-chart(305px);
           }
         }
 
         &--#{$j} {
-          @include bar-chart-secondary(225px);
+          @include bar-chart(225px);
+
+          @include respond(vertical-tab-big) {
+            @include bar-chart(225px);
+          }
 
           @include respond(vertical-phone-min) {
-            @include bar-chart-secondary(125px);
+            @include bar-chart(175px);
             width: 100px;
           }
         }

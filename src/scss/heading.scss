@@ -2,13 +2,17 @@
   width: 300px;
 
   &--primary {
+    font-family: "Roboto 700";
     color: var(--headline-color);
     font-size: var(--headline-font-size);
-    margin-bottom: 8px;
+    width: 100%;
   }
 
   &--secondary {
+    font-family: "Roboto 500";
     color: var(--subhead-secondary-color);
-    font-size: var(--subhead-font-size);
+    font-size: var(--caption-font-size);
+    margin-top: 8px;
+    width: 100%;
   }
 }

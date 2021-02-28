@@ -1,12 +1,35 @@
 const browsersync = require("browser-sync");
 const { src, dest, parallel, series, watch, task } = require("gulp");
+const source = require('vinyl-source-stream')
+const babelify = require('babelify');
+const watchify = require('watchify');
+const browserify = require('browserify');
+const assign = require('lodash.assign');
 const autoprefixer = require('gulp-autoprefixer');
 const changed = require("gulp-changed");
 const clean = require("gulp-clean");
-const concat = require("gulp-concat");
 const sass = require("gulp-sass");
-const babel = require("gulp-babel");
-const imagemin = require('gulp-imagemin');
+const { log } = require("gulp-clean/utils");
+const rename = require('gulp-rename')
+
+const customOptions = {
+    entries: ['./src/js/index.js'],
+    debug: true
+}
+
+const options = assign({}, watchify.args, customOptions);
+const bundler = watchify(browserify(options))
+
+function bundle() {
+    return bundler
+        .transform(babelify.configure({ presets: ['@babel/preset-env'] }))
+        .bundle()
+        .on('error', log.error.bind(log, "Browserify Error"))
+        .pipe(source('./src/js/index.js'))
+        .pipe(rename('stories.js'))
+        .pipe(dest('./build'))
+        .pipe(browsersync.stream())
+}
 
 function clear() {
     return src('./build', {
@@ -21,19 +44,6 @@ function html() {
         .pipe(browsersync.stream())
 }
 
-function js() {
-    const source = './src/js/*.js'
-
-    return src(source)
-        .pipe(changed(source))
-        .pipe(concat('stories.js'))
-        .pipe(babel({
-            presets: ["@babel/env"]
-        }))
-        .pipe(dest('./build'))
-        .pipe(browsersync.stream())
-}
-
 function css() {
     const source = './src/scss/index.scss'
 
@@ -44,14 +54,13 @@ function css() {
             overrideBrowserslist: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(concat('stories.css'))
+        .pipe(rename('stories.css'))
         .pipe(dest('./build'))
         .pipe(browsersync.stream())
 }
 
 function images() {
-    return src(['./src/assets/images/*/*.jpg'])
-        .pipe(imagemin())
+    return src('./src/assets/images/*/*.jpg')
         .pipe(dest('./build/assets/images'))
         .pipe(browsersync.stream());
 };
@@ -64,7 +73,7 @@ function fonts() {
 function watchFiles() {
     watch('./src/*.html', html)
     watch('./src/scss/**/*.scss', css);
-    watch('./src/js/**/*.js', js);
+    watch('./src/js/**/*.js', bundle);
     watch('./src/*.html').on("change", browsersync.reload)
 }
 
@@ -77,13 +86,18 @@ function browserSync() {
     });
 }
 
+
+
 watchFiles()
 
 task('html', html)
 task('css', css);
-task('js', js);
+task('js', bundle);
+bundler.on('update', bundle)
+bundler.on('log', log.info)
+
 task("images", images);
 task("fonts", fonts);
 task('watch', browserSync);
-task('build', series(clear, html, parallel(css, js), fonts, images));
+task('build', series(clear, html, parallel(css, bundle), fonts, images));
 task('dev', series('build', 'watch'))
