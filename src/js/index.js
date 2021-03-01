@@ -1,6 +1,6 @@
 import data from '../data';
 
-const showFirstSlide = ({ data }) => ` 
+const showLeaders = ({ data }) => `
   <section class="leaders">
     <div class="container">
       <div class="wrapper">
@@ -38,11 +38,9 @@ const showFirstSlide = ({ data }) => `
 const renderTemplate = (alias, data) => {
   data.forEach((slide, index) => {
     if (slide.alias === alias && index === 0) {
-      document.body.innerHTML = showFirstSlide(slide)
+      document.body.innerHTML = showLeaders(slide)
     }
   })
 }
-
-console.log()
 
 renderTemplate("leaders", data)

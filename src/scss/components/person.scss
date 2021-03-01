@@ -42,12 +42,12 @@
   }
 
   &__name {
-    width: 120px;
+    width: 96px;
     height: 36px;
     font-size: 16px;
     color: var(--color-white);
 
-    @include respond(vertical-phone-min) {
+    @include respond(phone-min) {
       width: 100px;
       font-size: 14px;
     }
@@ -58,8 +58,8 @@
     color: var(--color-light-grey);
     margin-top: 6px;
 
-    @include respond(vertical-phone-min) {
-      font-size: 12px;
+    @include respond(phone-min) {
+      font-size: 15px;
     }
   }
 
@@ -67,44 +67,47 @@
     margin-top: 16px;
     height: 100%;
     border-radius: 6px 6px 0 0;
-    min-height: 108px;
 
     &--1 {
+      min-height: 108px;
       @include bar-chart(325px, "primary");
 
-      @include respond(vertical-phone-min) {
-        @include bar-chart(225px, "primary");
+      @include respond(phone-min) {
+        @include bar-chart(250px, "primary");
         width: 100px;
+      }
+
+      @include respond(landscape-tablets) {
+        @include bar-chart(calc(325px), "primary");
       }
     }
 
-    @each $i in 2, 3 {
-      @each $j in 4, 5 {
-        $width: calc(325px - #{$i - 1} * 50px);
-
+    @each $i in 2, 3, 6, 7, 10, 11 {
+      @each $j in 4, 5, 8, 9, 12 {
         &--#{$i} {
-          @include bar-chart($width);
+          min-height: 88px;
+          @include bar-chart(calc(325px - #{$i - 1} * 50px));
 
-          @include respond(vertical-phone-min) {
-            @include bar-chart(125px - #{$i - 1} * 50px);
+          @include respond(phone-min) {
+            @include bar-chart(calc(275px - #{$i - 1} * 50px));
             width: 100px;
           }
 
-          @include respond(vertical-tab-big) {
-            @include bar-chart(305px);
+          @include respond(landscape-tablets) {
+            @include bar-chart(calc(325px - #{$i * 20}px));
           }
         }
 
         &--#{$j} {
+          min-height: 68px;
           @include bar-chart(225px);
 
-          @include respond(vertical-tab-big) {
-            @include bar-chart(225px);
+          @include respond(phone) {
+            @include bar-chart(175px);
           }
 
-          @include respond(vertical-phone-min) {
-            @include bar-chart(175px);
-            width: 100px;
+          @include respond(landscape-tablets) {
+            @include bar-chart(calc(325px - #{$j * 20}px));
           }
         }
       }

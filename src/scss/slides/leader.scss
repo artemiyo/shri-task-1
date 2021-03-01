@@ -6,7 +6,7 @@
     position: relative;
     width: 120px;
 
-    @include respond(vertical-phone-min) {
+    @include respond(phone) {
       width: 100px;
     }
   }
@@ -27,8 +27,8 @@
       position: relative;
     }
 
-    @each $i in 2, 4 {
-      @each $j in 3, 5 {
+    @each $i in 2, 4, 6, 8, 10, 12 {
+      @each $j in 3, 5, 7, 9, 11 {
         &:nth-child(#{$j}) {
           right: calc(104px * (#{$j - 1}) / 2);
           z-index: #{5 - $j};
@@ -40,8 +40,8 @@
             }
           }
 
-          @include respond(vertical-phone-min) {
-            right: calc(88px * (#{$j - 1}) / 2);
+          @include respond(phone) {
+            right: calc(104px * (#{$j - 1}) / 2 - 10px);
           }
         }
 
@@ -56,9 +56,17 @@
             }
           }
 
-          @include respond(vertical-phone-min) {
-            left: calc(88px * #{$i / 2});
+          @include respond(phone) {
+            left: calc(104px * #{$i / 2} - 10px);
           }
+        }
+      }
+    }
+
+    @for $var from 4 through 12 {
+      &:nth-child(#{$var}) {
+        @media only screen and (max-width: 575px) {
+          display: none;
         }
       }
     }

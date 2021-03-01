@@ -1,6 +1,11 @@
 .heading {
   width: 300px;
 
+  @include respond(landscape-tablets) {
+    width: 100%;
+    text-align: center;
+  }
+
   &--primary {
     font-family: "Roboto 700";
     color: var(--headline-color);

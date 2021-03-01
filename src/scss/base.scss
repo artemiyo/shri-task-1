@@ -86,7 +86,7 @@ body {
   margin: 0 auto;
   padding: 20px 20px 0 20px;
 
-  @include respond(vertical-phone) {
+  @include respond(phone) {
     min-width: 376px;
     margin: 0 auto;
   }

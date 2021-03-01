@@ -1,37 +1,37 @@
 // Media Queries
 @mixin respond($breakpoint) {
-  @if $breakpoint == vertical-phone-min {
-    @media only screen and (max-width: 340px) {
+  @if $breakpoint == phone-min {
+    @media all and (max-width: 340px) {
       @content;
     }
   }
-  @if $breakpoint == vertical-phone {
-    @media only screen and (min-width: 376px) and (max-width: 413px) {
+  @if $breakpoint == phone {
+    @media all and (min-width: 376px) {
       @content;
     }
   }
-  @if $breakpoint == vertical-tab-min {
-    @media only screen and (min-width: 414px) and (max-width: 575px) {
+  @if $breakpoint == phone-large {
+    @media all and (min-width: 414px) {
       @content;
     }
   }
-  @if $breakpoint == vertical-tab-big {
-    @media only screen and (min-width: 576px) and (max-width: 767px) {
+  @if $breakpoint == landscape-tablets {
+    @media all and (min-width: 576px) {
       @content;
     }
   }
-  @if $breakpoint == vertical-tab {
-    @media only screen and (min-width: 768px) and (max-width: 1365px) {
+  @if $breakpoint == tablets {
+    @media all and (min-width: 768px) {
       @content;
     }
   }
-  @if $breakpoint == horizontal-laptop {
-    @media only screen and (min-width: 1366px) and (max-width: 1919px) {
+  @if $breakpoint == laptop {
+    @media all and (min-width: 992px) {
       @content;
     }
   }
-  @if $breakpoint == horizontal-desktops {
-    @media only screen and (min-width: 1920px) {
+  @if $breakpoint == desktop {
+    @media all and (min-width: 1200px) {
       @content;
     }
   }
@@ -44,7 +44,6 @@
   box-shadow: var(--bar-chart__#{$type}-shadow);
   width: var(--bar-chart-width);
   height: $height;
-  min-height: 108px;
 }
 
 // Bar Chart positioning
