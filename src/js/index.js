@@ -37,7 +37,7 @@ const showLeaders = ({ data }) => `
 
 const renderTemplate = (alias, data) => {
   data.forEach((slide, index) => {
-    if (slide.alias === alias && index === 0) {
+    if (slide.alias === alias && index === 1) {
       document.body.innerHTML = showLeaders(slide)
     }
   })

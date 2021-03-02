@@ -48,7 +48,6 @@ function css() {
     const source = './src/scss/index.scss'
 
     return src(source)
-        .pipe(changed(source))
         .pipe(sass())
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 2 versions'],
@@ -62,7 +61,6 @@ function css() {
 function images() {
     return src('./src/assets/images/*/*.jpg')
         .pipe(dest('./build/assets/images'))
-        .pipe(browsersync.stream());
 };
 
 function fonts() {
