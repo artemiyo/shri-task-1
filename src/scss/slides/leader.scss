@@ -5,10 +5,6 @@
     margin: auto auto 0 auto;
     position: relative;
     width: 120px;
-
-    @include respond(phone) {
-      width: 100px;
-    }
   }
 
   &__item {
@@ -27,38 +23,40 @@
       position: relative;
     }
 
-    @each $i in 2, 4, 6, 8, 10, 12 {
-      @each $j in 3, 5, 7, 9, 11 {
-        &:nth-child(#{$j}) {
-          right: calc(104px * (#{$j - 1}) / 2);
-          z-index: #{5 - $j};
+    @for $i from 2 through 12 {
+      &:nth-child(#{$i}):nth-child(odd) {
+        right: calc(104px * (#{$i - 1} / 2));
+        z-index: #{12 - $i};
 
-          .person {
-            &__place-number,
-            &__info {
-              @include relative-right(6px);
-            }
-          }
-
-          @include respond(phone) {
-            right: calc(104px * (#{$j - 1}) / 2 - 10px);
+        .person {
+          &__place-number,
+          &__info {
+            @include relative-right(6px);
           }
         }
 
-        &:nth-child(#{$i}) {
-          left: calc(104px * #{$i / 2});
-          z-index: #{4 - $i};
+        @include respond(phone) {
+          right: calc(104px * (#{$i - 1}) / 2);
+        }
 
-          .person {
-            &__place-number,
-            &__info {
-              @include relative-left(6px);
-            }
-          }
+        @include respond(phone-min) {
+          right: calc(94px * (#{$i - 1} / 2));
+        }
+      }
 
-          @include respond(phone) {
-            left: calc(104px * #{$i / 2} - 10px);
+      &:nth-child(#{$i}):nth-child(even) {
+        left: calc(104px * #{$i} / 2);
+        z-index: #{12 - $i};
+
+        .person {
+          &__place-number,
+          &__info {
+            @include relative-left(6px);
           }
+        }
+
+        @include respond(phone-min) {
+          left: calc(94px * (#{$i} / 2));
         }
       }
     }

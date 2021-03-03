@@ -42,13 +42,12 @@
   }
 
   &__name {
-    width: 96px;
+    width: 88px;
     height: 36px;
     font-size: 16px;
     color: var(--color-white);
 
     @include respond(phone-min) {
-      width: 100px;
       font-size: 14px;
     }
   }
@@ -59,7 +58,7 @@
     margin-top: 6px;
 
     @include respond(phone-min) {
-      font-size: 15px;
+      font-size: 12px;
     }
   }
 
@@ -70,15 +69,16 @@
 
     &--1 {
       min-height: 108px;
+      max-height: 325px;
       @include bar-chart(325px, "primary");
 
       @include respond(phone-min) {
-        @include bar-chart(250px, "primary");
+        @include bar-chart(40vh, "primary");
         width: 100px;
       }
 
       @include respond(landscape-tablets) {
-        @include bar-chart(calc(325px), "primary");
+        @include bar-chart(calc(29vh), "primary");
       }
     }
 
@@ -86,15 +86,16 @@
       @each $j in 4, 5, 8, 9, 12 {
         &--#{$i} {
           min-height: 88px;
+          max-height: 325px;
           @include bar-chart(calc(325px - #{$i - 1} * 50px));
 
           @include respond(phone-min) {
-            @include bar-chart(calc(275px - #{$i - 1} * 50px));
+            @include bar-chart(calc(35vh - #{$i - 1} * 50px));
             width: 100px;
           }
 
           @include respond(landscape-tablets) {
-            @include bar-chart(calc(325px - #{$i * 20}px));
+            @include bar-chart(calc(29vh - #{$i * 10}px));
           }
         }
 
@@ -107,7 +108,7 @@
           }
 
           @include respond(landscape-tablets) {
-            @include bar-chart(calc(325px - #{$j * 20}px));
+            @include bar-chart(calc(29vh - #{$j * 10}px));
           }
         }
       }
