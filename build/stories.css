@@ -120,15 +120,28 @@ body {
     color: var(--headline-color);
     font-size: var(--headline-font-size);
     width: 100%; }
+    @media all and (min-width: 768px) {
+      .heading--primary {
+        font-size: calc(var(--headline-font-size) + 10px); } }
+    @media all and (min-width: 1365px) {
+      .heading--primary {
+        font-size: calc(var(--headline-font-size) + 20px); } }
   .heading--secondary {
     font-family: "Roboto 500";
     color: var(--subhead-secondary-color);
     font-size: var(--caption-font-size);
     margin-top: 8px;
     width: 100%; }
+    @media all and (min-width: 768px) {
+      .heading--secondary {
+        font-size: calc(var(--caption-font-size) + 5px); } }
+    @media all and (min-width: 1365px) {
+      .heading--secondary {
+        font-size: calc(var(--caption-font-size) + 10px); } }
 
 .person {
-  margin-top: auto; }
+  margin-top: auto;
+  width: 100%; }
   .person__info {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -143,7 +156,13 @@ body {
   .person__photo {
     width: 64px;
     height: 64px;
+    max-width: 256px;
+    max-height: 256px;
     position: relative; }
+    @media all and (min-width: 768px) {
+      .person__photo {
+        width: calc(60vw / 5);
+        height: calc(60vw / 5); } }
     .person__photo img {
       width: 100%;
       height: 100%;
@@ -158,11 +177,24 @@ body {
       line-height: 32px;
       left: -18px;
       bottom: calc(100% - 10px); }
+      @media all and (min-width: 768px) {
+        .person__photo__emoji {
+          width: 100%;
+          left: 0;
+          font-size: 48px;
+          line-height: 24px; } }
+      @media all and (min-width: 1365px) {
+        .person__photo__emoji {
+          font-size: 64px;
+          line-height: 16px; } }
   .person__data {
     margin-top: 6px;
     text-align: center; }
     .person__data span {
       display: block; }
+    @media all and (min-width: 1365px) {
+      .person__data {
+        margin-top: 16px; } }
   .person__name {
     width: 88px;
     height: 36px;
@@ -171,6 +203,16 @@ body {
     @media all and (max-width: 340px) {
       .person__name {
         font-size: 14px; } }
+    @media all and (min-width: 768px) {
+      .person__name {
+        font-size: 18px; } }
+    @media all and (min-width: 768px) {
+      .person__name {
+        font-size: 18px; } }
+    @media all and (min-width: 1365px) {
+      .person__name {
+        width: 100%;
+        height: 100%; } }
   .person__count {
     font-size: 14px;
     color: var(--color-light-grey);
@@ -178,6 +220,10 @@ body {
     @media all and (max-width: 340px) {
       .person__count {
         font-size: 12px; } }
+    @media all and (min-width: 768px) {
+      .person__count {
+        margin-top: 12px;
+        font-size: 16px; } }
   .person__place {
     margin-top: 16px;
     height: 100%;
@@ -205,6 +251,26 @@ body {
           box-shadow: var(--bar-chart__primary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh); } }
+      @media all and (min-width: 768px) {
+        .person__place--1 {
+          max-height: 425px;
+          background: var(--bar-chart__primary-background);
+          -webkit-box-shadow: var(--bar-chart__primary-shadow);
+          box-shadow: var(--bar-chart__primary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(45vh);
+          min-width: 120px;
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--1 {
+          max-height: 425px;
+          background: var(--bar-chart__primary-background);
+          -webkit-box-shadow: var(--bar-chart__primary-shadow);
+          box-shadow: var(--bar-chart__primary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh);
+          min-width: 120px;
+          width: calc(80vw / 5); } }
     .person__place--2 {
       min-height: 88px;
       max-height: 325px;
@@ -219,7 +285,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 1 * 50px);
+          height: calc(40vh - 1 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--2 {
@@ -228,6 +294,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 20px); } }
+      @media all and (min-width: 768px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 4px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 4px);
+          width: calc(80vw / 5); } }
     .person__place--4 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -249,6 +335,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 40px); } }
+      @media all and (min-width: 768px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 8px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 8px);
+          width: calc(80vw / 5); } }
     .person__place--2 {
       min-height: 88px;
       max-height: 325px;
@@ -263,7 +369,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 1 * 50px);
+          height: calc(40vh - 1 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--2 {
@@ -272,6 +378,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 20px); } }
+      @media all and (min-width: 768px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 4px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 4px);
+          width: calc(80vw / 5); } }
     .person__place--5 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -293,6 +419,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 50px); } }
+      @media all and (min-width: 768px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 10px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 10px);
+          width: calc(80vw / 5); } }
     .person__place--2 {
       min-height: 88px;
       max-height: 325px;
@@ -307,7 +453,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 1 * 50px);
+          height: calc(40vh - 1 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--2 {
@@ -316,6 +462,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 20px); } }
+      @media all and (min-width: 768px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 4px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 4px);
+          width: calc(80vw / 5); } }
     .person__place--8 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -337,6 +503,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 80px); } }
+      @media all and (min-width: 768px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 16px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 16px);
+          width: calc(80vw / 5); } }
     .person__place--2 {
       min-height: 88px;
       max-height: 325px;
@@ -351,7 +537,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 1 * 50px);
+          height: calc(40vh - 1 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--2 {
@@ -360,6 +546,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 20px); } }
+      @media all and (min-width: 768px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 4px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 4px);
+          width: calc(80vw / 5); } }
     .person__place--9 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -381,6 +587,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 90px); } }
+      @media all and (min-width: 768px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 18px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 18px);
+          width: calc(80vw / 5); } }
     .person__place--2 {
       min-height: 88px;
       max-height: 325px;
@@ -395,7 +621,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 1 * 50px);
+          height: calc(40vh - 1 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--2 {
@@ -404,6 +630,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 20px); } }
+      @media all and (min-width: 768px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 4px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--2 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 4px);
+          width: calc(80vw / 5); } }
     .person__place--12 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -425,6 +671,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 120px); } }
+      @media all and (min-width: 768px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 24px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 24px);
+          width: calc(80vw / 5); } }
     .person__place--3 {
       min-height: 88px;
       max-height: 325px;
@@ -439,7 +705,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 2 * 50px);
+          height: calc(40vh - 2 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--3 {
@@ -448,6 +714,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 30px); } }
+      @media all and (min-width: 768px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 6px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 6px);
+          width: calc(80vw / 5); } }
     .person__place--4 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -469,6 +755,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 40px); } }
+      @media all and (min-width: 768px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 8px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 8px);
+          width: calc(80vw / 5); } }
     .person__place--3 {
       min-height: 88px;
       max-height: 325px;
@@ -483,7 +789,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 2 * 50px);
+          height: calc(40vh - 2 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--3 {
@@ -492,6 +798,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 30px); } }
+      @media all and (min-width: 768px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 6px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 6px);
+          width: calc(80vw / 5); } }
     .person__place--5 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -513,6 +839,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 50px); } }
+      @media all and (min-width: 768px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 10px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 10px);
+          width: calc(80vw / 5); } }
     .person__place--3 {
       min-height: 88px;
       max-height: 325px;
@@ -527,7 +873,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 2 * 50px);
+          height: calc(40vh - 2 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--3 {
@@ -536,6 +882,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 30px); } }
+      @media all and (min-width: 768px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 6px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 6px);
+          width: calc(80vw / 5); } }
     .person__place--8 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -557,6 +923,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 80px); } }
+      @media all and (min-width: 768px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 16px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 16px);
+          width: calc(80vw / 5); } }
     .person__place--3 {
       min-height: 88px;
       max-height: 325px;
@@ -571,7 +957,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 2 * 50px);
+          height: calc(40vh - 2 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--3 {
@@ -580,6 +966,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 30px); } }
+      @media all and (min-width: 768px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 6px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 6px);
+          width: calc(80vw / 5); } }
     .person__place--9 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -601,6 +1007,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 90px); } }
+      @media all and (min-width: 768px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 18px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 18px);
+          width: calc(80vw / 5); } }
     .person__place--3 {
       min-height: 88px;
       max-height: 325px;
@@ -615,7 +1041,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 2 * 50px);
+          height: calc(40vh - 2 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--3 {
@@ -624,6 +1050,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 30px); } }
+      @media all and (min-width: 768px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 6px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--3 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 6px);
+          width: calc(80vw / 5); } }
     .person__place--12 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -645,6 +1091,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 120px); } }
+      @media all and (min-width: 768px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 24px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 24px);
+          width: calc(80vw / 5); } }
     .person__place--6 {
       min-height: 88px;
       max-height: 325px;
@@ -659,7 +1125,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 5 * 50px);
+          height: calc(40vh - 5 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--6 {
@@ -668,6 +1134,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 60px); } }
+      @media all and (min-width: 768px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 12px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 12px);
+          width: calc(80vw / 5); } }
     .person__place--4 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -689,6 +1175,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 40px); } }
+      @media all and (min-width: 768px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 8px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 8px);
+          width: calc(80vw / 5); } }
     .person__place--6 {
       min-height: 88px;
       max-height: 325px;
@@ -703,7 +1209,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 5 * 50px);
+          height: calc(40vh - 5 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--6 {
@@ -712,6 +1218,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 60px); } }
+      @media all and (min-width: 768px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 12px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 12px);
+          width: calc(80vw / 5); } }
     .person__place--5 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -733,6 +1259,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 50px); } }
+      @media all and (min-width: 768px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 10px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 10px);
+          width: calc(80vw / 5); } }
     .person__place--6 {
       min-height: 88px;
       max-height: 325px;
@@ -747,7 +1293,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 5 * 50px);
+          height: calc(40vh - 5 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--6 {
@@ -756,6 +1302,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 60px); } }
+      @media all and (min-width: 768px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 12px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 12px);
+          width: calc(80vw / 5); } }
     .person__place--8 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -777,6 +1343,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 80px); } }
+      @media all and (min-width: 768px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 16px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 16px);
+          width: calc(80vw / 5); } }
     .person__place--6 {
       min-height: 88px;
       max-height: 325px;
@@ -791,7 +1377,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 5 * 50px);
+          height: calc(40vh - 5 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--6 {
@@ -800,6 +1386,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 60px); } }
+      @media all and (min-width: 768px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 12px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 12px);
+          width: calc(80vw / 5); } }
     .person__place--9 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -821,6 +1427,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 90px); } }
+      @media all and (min-width: 768px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 18px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 18px);
+          width: calc(80vw / 5); } }
     .person__place--6 {
       min-height: 88px;
       max-height: 325px;
@@ -835,7 +1461,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 5 * 50px);
+          height: calc(40vh - 5 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--6 {
@@ -844,6 +1470,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 60px); } }
+      @media all and (min-width: 768px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 12px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--6 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 12px);
+          width: calc(80vw / 5); } }
     .person__place--12 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -865,6 +1511,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 120px); } }
+      @media all and (min-width: 768px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 24px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 24px);
+          width: calc(80vw / 5); } }
     .person__place--7 {
       min-height: 88px;
       max-height: 325px;
@@ -879,7 +1545,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 6 * 50px);
+          height: calc(40vh - 6 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--7 {
@@ -888,6 +1554,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 70px); } }
+      @media all and (min-width: 768px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 14px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 14px);
+          width: calc(80vw / 5); } }
     .person__place--4 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -909,6 +1595,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 40px); } }
+      @media all and (min-width: 768px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 8px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 8px);
+          width: calc(80vw / 5); } }
     .person__place--7 {
       min-height: 88px;
       max-height: 325px;
@@ -923,7 +1629,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 6 * 50px);
+          height: calc(40vh - 6 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--7 {
@@ -932,6 +1638,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 70px); } }
+      @media all and (min-width: 768px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 14px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 14px);
+          width: calc(80vw / 5); } }
     .person__place--5 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -953,6 +1679,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 50px); } }
+      @media all and (min-width: 768px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 10px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 10px);
+          width: calc(80vw / 5); } }
     .person__place--7 {
       min-height: 88px;
       max-height: 325px;
@@ -967,7 +1713,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 6 * 50px);
+          height: calc(40vh - 6 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--7 {
@@ -976,6 +1722,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 70px); } }
+      @media all and (min-width: 768px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 14px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 14px);
+          width: calc(80vw / 5); } }
     .person__place--8 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -997,6 +1763,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 80px); } }
+      @media all and (min-width: 768px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 16px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 16px);
+          width: calc(80vw / 5); } }
     .person__place--7 {
       min-height: 88px;
       max-height: 325px;
@@ -1011,7 +1797,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 6 * 50px);
+          height: calc(40vh - 6 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--7 {
@@ -1020,6 +1806,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 70px); } }
+      @media all and (min-width: 768px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 14px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 14px);
+          width: calc(80vw / 5); } }
     .person__place--9 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1041,6 +1847,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 90px); } }
+      @media all and (min-width: 768px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 18px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 18px);
+          width: calc(80vw / 5); } }
     .person__place--7 {
       min-height: 88px;
       max-height: 325px;
@@ -1055,7 +1881,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 6 * 50px);
+          height: calc(40vh - 6 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--7 {
@@ -1064,6 +1890,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 70px); } }
+      @media all and (min-width: 768px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 14px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--7 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 14px);
+          width: calc(80vw / 5); } }
     .person__place--12 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1085,6 +1931,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 120px); } }
+      @media all and (min-width: 768px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 24px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 24px);
+          width: calc(80vw / 5); } }
     .person__place--10 {
       min-height: 88px;
       max-height: 325px;
@@ -1099,7 +1965,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 9 * 50px);
+          height: calc(40vh - 9 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--10 {
@@ -1108,6 +1974,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 100px); } }
+      @media all and (min-width: 768px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 20px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 20px);
+          width: calc(80vw / 5); } }
     .person__place--4 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1129,6 +2015,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 40px); } }
+      @media all and (min-width: 768px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 8px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 8px);
+          width: calc(80vw / 5); } }
     .person__place--10 {
       min-height: 88px;
       max-height: 325px;
@@ -1143,7 +2049,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 9 * 50px);
+          height: calc(40vh - 9 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--10 {
@@ -1152,6 +2058,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 100px); } }
+      @media all and (min-width: 768px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 20px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 20px);
+          width: calc(80vw / 5); } }
     .person__place--5 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1173,6 +2099,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 50px); } }
+      @media all and (min-width: 768px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 10px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 10px);
+          width: calc(80vw / 5); } }
     .person__place--10 {
       min-height: 88px;
       max-height: 325px;
@@ -1187,7 +2133,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 9 * 50px);
+          height: calc(40vh - 9 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--10 {
@@ -1196,6 +2142,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 100px); } }
+      @media all and (min-width: 768px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 20px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 20px);
+          width: calc(80vw / 5); } }
     .person__place--8 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1217,6 +2183,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 80px); } }
+      @media all and (min-width: 768px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 16px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 16px);
+          width: calc(80vw / 5); } }
     .person__place--10 {
       min-height: 88px;
       max-height: 325px;
@@ -1231,7 +2217,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 9 * 50px);
+          height: calc(40vh - 9 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--10 {
@@ -1240,6 +2226,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 100px); } }
+      @media all and (min-width: 768px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 20px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 20px);
+          width: calc(80vw / 5); } }
     .person__place--9 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1261,6 +2267,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 90px); } }
+      @media all and (min-width: 768px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 18px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 18px);
+          width: calc(80vw / 5); } }
     .person__place--10 {
       min-height: 88px;
       max-height: 325px;
@@ -1275,7 +2301,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 9 * 50px);
+          height: calc(40vh - 9 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--10 {
@@ -1284,6 +2310,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 100px); } }
+      @media all and (min-width: 768px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 20px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--10 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 20px);
+          width: calc(80vw / 5); } }
     .person__place--12 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1305,6 +2351,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 120px); } }
+      @media all and (min-width: 768px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 24px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 24px);
+          width: calc(80vw / 5); } }
     .person__place--11 {
       min-height: 88px;
       max-height: 325px;
@@ -1319,7 +2385,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 10 * 50px);
+          height: calc(40vh - 10 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--11 {
@@ -1328,6 +2394,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 110px); } }
+      @media all and (min-width: 768px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 22px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 22px);
+          width: calc(80vw / 5); } }
     .person__place--4 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1349,6 +2435,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 40px); } }
+      @media all and (min-width: 768px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 8px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--4 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 8px);
+          width: calc(80vw / 5); } }
     .person__place--11 {
       min-height: 88px;
       max-height: 325px;
@@ -1363,7 +2469,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 10 * 50px);
+          height: calc(40vh - 10 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--11 {
@@ -1372,6 +2478,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 110px); } }
+      @media all and (min-width: 768px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 22px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 22px);
+          width: calc(80vw / 5); } }
     .person__place--5 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1393,6 +2519,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 50px); } }
+      @media all and (min-width: 768px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 10px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--5 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 10px);
+          width: calc(80vw / 5); } }
     .person__place--11 {
       min-height: 88px;
       max-height: 325px;
@@ -1407,7 +2553,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 10 * 50px);
+          height: calc(40vh - 10 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--11 {
@@ -1416,6 +2562,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 110px); } }
+      @media all and (min-width: 768px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 22px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 22px);
+          width: calc(80vw / 5); } }
     .person__place--8 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1437,6 +2603,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 80px); } }
+      @media all and (min-width: 768px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 16px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--8 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 16px);
+          width: calc(80vw / 5); } }
     .person__place--11 {
       min-height: 88px;
       max-height: 325px;
@@ -1451,7 +2637,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 10 * 50px);
+          height: calc(40vh - 10 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--11 {
@@ -1460,6 +2646,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 110px); } }
+      @media all and (min-width: 768px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 22px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 22px);
+          width: calc(80vw / 5); } }
     .person__place--9 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1481,6 +2687,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 90px); } }
+      @media all and (min-width: 768px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 18px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--9 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 18px);
+          width: calc(80vw / 5); } }
     .person__place--11 {
       min-height: 88px;
       max-height: 325px;
@@ -1495,7 +2721,7 @@ body {
           -webkit-box-shadow: var(--bar-chart__secondary-shadow);
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
-          height: calc(35vh - 10 * 50px);
+          height: calc(40vh - 10 * 30px);
           width: 100px; } }
       @media all and (min-width: 576px) {
         .person__place--11 {
@@ -1504,6 +2730,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 110px); } }
+      @media all and (min-width: 768px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(40vh - 22px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--11 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(32vh - 22px);
+          width: calc(80vw / 5); } }
     .person__place--12 {
       min-height: 68px;
       background: var(--bar-chart__secondary-background);
@@ -1525,6 +2771,26 @@ body {
           box-shadow: var(--bar-chart__secondary-shadow);
           width: var(--bar-chart-width);
           height: calc(29vh - 120px); } }
+      @media all and (min-width: 768px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(35vh - 24px);
+          width: calc(80vw / 5); } }
+      @media all and (min-width: 1365px) {
+        .person__place--12 {
+          min-width: 120px;
+          max-height: 375px;
+          background: var(--bar-chart__secondary-background);
+          -webkit-box-shadow: var(--bar-chart__secondary-shadow);
+          box-shadow: var(--bar-chart__secondary-shadow);
+          width: var(--bar-chart-width);
+          height: calc(29vh - 24px);
+          width: calc(80vw / 5); } }
     .person__place-number {
       display: block;
       font-size: 30px;
@@ -1537,6 +2803,12 @@ body {
     margin: auto auto 0 auto;
     position: relative;
     width: 120px; }
+    @media all and (max-width: 340px) {
+      .leaders__list {
+        width: 100px; } }
+    @media all and (min-width: 768px) {
+      .leaders__list {
+        width: calc(80vw / 5); } }
   .leaders__item {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1548,7 +2820,14 @@ body {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    text-align: center; }
+    text-align: center;
+    width: 120px; }
+    @media all and (max-width: 340px) {
+      .leaders__item {
+        width: 100px; } }
+    @media all and (min-width: 768px) {
+      .leaders__item {
+        width: calc(80vw / 5); } }
     .leaders__item:not(:first-child) {
       position: absolute;
       bottom: 0; }
@@ -1561,12 +2840,15 @@ body {
       .leaders__item:nth-child(2):nth-child(odd) .person__place-number, .leaders__item:nth-child(2):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(2):nth-child(odd) {
+          right: calc(84px * (1 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(2):nth-child(odd) {
           right: calc(104px * (1) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(2):nth-child(odd) {
-          right: calc(94px * (1 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (1) / 2); } }
     .leaders__item:nth-child(2):nth-child(even) {
       left: calc(104px * 2 / 2);
       z-index: 10; }
@@ -1575,19 +2857,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(2):nth-child(even) {
-          left: calc(94px * (2 / 2)); } }
+          left: calc(84px * 2 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(2):nth-child(even) {
+          left: calc(104px * 2 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(2):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 2 / 2); } }
     .leaders__item:nth-child(3):nth-child(odd) {
       right: calc(104px * (2 / 2));
       z-index: 9; }
       .leaders__item:nth-child(3):nth-child(odd) .person__place-number, .leaders__item:nth-child(3):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(3):nth-child(odd) {
+          right: calc(84px * (2 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(3):nth-child(odd) {
           right: calc(104px * (2) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(3):nth-child(odd) {
-          right: calc(94px * (2 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (2) / 2); } }
     .leaders__item:nth-child(3):nth-child(even) {
       left: calc(104px * 3 / 2);
       z-index: 9; }
@@ -1596,19 +2887,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(3):nth-child(even) {
-          left: calc(94px * (3 / 2)); } }
+          left: calc(84px * 3 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(3):nth-child(even) {
+          left: calc(104px * 3 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(3):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 3 / 2); } }
     .leaders__item:nth-child(4):nth-child(odd) {
       right: calc(104px * (3 / 2));
       z-index: 8; }
       .leaders__item:nth-child(4):nth-child(odd) .person__place-number, .leaders__item:nth-child(4):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(4):nth-child(odd) {
+          right: calc(84px * (3 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(4):nth-child(odd) {
           right: calc(104px * (3) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(4):nth-child(odd) {
-          right: calc(94px * (3 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (3) / 2); } }
     .leaders__item:nth-child(4):nth-child(even) {
       left: calc(104px * 4 / 2);
       z-index: 8; }
@@ -1617,19 +2917,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(4):nth-child(even) {
-          left: calc(94px * (4 / 2)); } }
+          left: calc(84px * 4 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(4):nth-child(even) {
+          left: calc(104px * 4 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(4):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 4 / 2); } }
     .leaders__item:nth-child(5):nth-child(odd) {
       right: calc(104px * (4 / 2));
       z-index: 7; }
       .leaders__item:nth-child(5):nth-child(odd) .person__place-number, .leaders__item:nth-child(5):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(5):nth-child(odd) {
+          right: calc(84px * (4 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(5):nth-child(odd) {
           right: calc(104px * (4) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(5):nth-child(odd) {
-          right: calc(94px * (4 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (4) / 2); } }
     .leaders__item:nth-child(5):nth-child(even) {
       left: calc(104px * 5 / 2);
       z-index: 7; }
@@ -1638,19 +2947,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(5):nth-child(even) {
-          left: calc(94px * (5 / 2)); } }
+          left: calc(84px * 5 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(5):nth-child(even) {
+          left: calc(104px * 5 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(5):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 5 / 2); } }
     .leaders__item:nth-child(6):nth-child(odd) {
       right: calc(104px * (5 / 2));
       z-index: 6; }
       .leaders__item:nth-child(6):nth-child(odd) .person__place-number, .leaders__item:nth-child(6):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(6):nth-child(odd) {
+          right: calc(84px * (5 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(6):nth-child(odd) {
           right: calc(104px * (5) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(6):nth-child(odd) {
-          right: calc(94px * (5 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (5) / 2); } }
     .leaders__item:nth-child(6):nth-child(even) {
       left: calc(104px * 6 / 2);
       z-index: 6; }
@@ -1659,19 +2977,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(6):nth-child(even) {
-          left: calc(94px * (6 / 2)); } }
+          left: calc(84px * 6 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(6):nth-child(even) {
+          left: calc(104px * 6 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(6):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 6 / 2); } }
     .leaders__item:nth-child(7):nth-child(odd) {
       right: calc(104px * (6 / 2));
       z-index: 5; }
       .leaders__item:nth-child(7):nth-child(odd) .person__place-number, .leaders__item:nth-child(7):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(7):nth-child(odd) {
+          right: calc(84px * (6 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(7):nth-child(odd) {
           right: calc(104px * (6) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(7):nth-child(odd) {
-          right: calc(94px * (6 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (6) / 2); } }
     .leaders__item:nth-child(7):nth-child(even) {
       left: calc(104px * 7 / 2);
       z-index: 5; }
@@ -1680,19 +3007,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(7):nth-child(even) {
-          left: calc(94px * (7 / 2)); } }
+          left: calc(84px * 7 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(7):nth-child(even) {
+          left: calc(104px * 7 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(7):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 7 / 2); } }
     .leaders__item:nth-child(8):nth-child(odd) {
       right: calc(104px * (7 / 2));
       z-index: 4; }
       .leaders__item:nth-child(8):nth-child(odd) .person__place-number, .leaders__item:nth-child(8):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(8):nth-child(odd) {
+          right: calc(84px * (7 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(8):nth-child(odd) {
           right: calc(104px * (7) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(8):nth-child(odd) {
-          right: calc(94px * (7 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (7) / 2); } }
     .leaders__item:nth-child(8):nth-child(even) {
       left: calc(104px * 8 / 2);
       z-index: 4; }
@@ -1701,19 +3037,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(8):nth-child(even) {
-          left: calc(94px * (8 / 2)); } }
+          left: calc(84px * 8 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(8):nth-child(even) {
+          left: calc(104px * 8 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(8):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 8 / 2); } }
     .leaders__item:nth-child(9):nth-child(odd) {
       right: calc(104px * (8 / 2));
       z-index: 3; }
       .leaders__item:nth-child(9):nth-child(odd) .person__place-number, .leaders__item:nth-child(9):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(9):nth-child(odd) {
+          right: calc(84px * (8 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(9):nth-child(odd) {
           right: calc(104px * (8) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(9):nth-child(odd) {
-          right: calc(94px * (8 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (8) / 2); } }
     .leaders__item:nth-child(9):nth-child(even) {
       left: calc(104px * 9 / 2);
       z-index: 3; }
@@ -1722,19 +3067,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(9):nth-child(even) {
-          left: calc(94px * (9 / 2)); } }
+          left: calc(84px * 9 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(9):nth-child(even) {
+          left: calc(104px * 9 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(9):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 9 / 2); } }
     .leaders__item:nth-child(10):nth-child(odd) {
       right: calc(104px * (9 / 2));
       z-index: 2; }
       .leaders__item:nth-child(10):nth-child(odd) .person__place-number, .leaders__item:nth-child(10):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(10):nth-child(odd) {
+          right: calc(84px * (9 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(10):nth-child(odd) {
           right: calc(104px * (9) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(10):nth-child(odd) {
-          right: calc(94px * (9 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (9) / 2); } }
     .leaders__item:nth-child(10):nth-child(even) {
       left: calc(104px * 10 / 2);
       z-index: 2; }
@@ -1743,19 +3097,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(10):nth-child(even) {
-          left: calc(94px * (10 / 2)); } }
+          left: calc(84px * 10 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(10):nth-child(even) {
+          left: calc(104px * 10 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(10):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 10 / 2); } }
     .leaders__item:nth-child(11):nth-child(odd) {
       right: calc(104px * (10 / 2));
       z-index: 1; }
       .leaders__item:nth-child(11):nth-child(odd) .person__place-number, .leaders__item:nth-child(11):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(11):nth-child(odd) {
+          right: calc(84px * (10 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(11):nth-child(odd) {
           right: calc(104px * (10) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(11):nth-child(odd) {
-          right: calc(94px * (10 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (10) / 2); } }
     .leaders__item:nth-child(11):nth-child(even) {
       left: calc(104px * 11 / 2);
       z-index: 1; }
@@ -1764,19 +3127,28 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(11):nth-child(even) {
-          left: calc(94px * (11 / 2)); } }
+          left: calc(84px * 11 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(11):nth-child(even) {
+          left: calc(104px * 11 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(11):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 11 / 2); } }
     .leaders__item:nth-child(12):nth-child(odd) {
       right: calc(104px * (11 / 2));
       z-index: 0; }
       .leaders__item:nth-child(12):nth-child(odd) .person__place-number, .leaders__item:nth-child(12):nth-child(odd) .person__info {
         position: relative;
         right: 6px; }
+      @media all and (max-width: 340px) {
+        .leaders__item:nth-child(12):nth-child(odd) {
+          right: calc(84px * (11 / 2)); } }
       @media all and (min-width: 376px) {
         .leaders__item:nth-child(12):nth-child(odd) {
           right: calc(104px * (11) / 2); } }
-      @media all and (max-width: 340px) {
+      @media all and (min-width: 768px) {
         .leaders__item:nth-child(12):nth-child(odd) {
-          right: calc(94px * (11 / 2)); } }
+          right: calc(calc((80vw / 5) - 16px) * (11) / 2); } }
     .leaders__item:nth-child(12):nth-child(even) {
       left: calc(104px * 12 / 2);
       z-index: 0; }
@@ -1785,7 +3157,13 @@ body {
         left: 6px; }
       @media all and (max-width: 340px) {
         .leaders__item:nth-child(12):nth-child(even) {
-          left: calc(94px * (12 / 2)); } }
+          left: calc(84px * 12 / 2); } }
+      @media all and (min-width: 376px) {
+        .leaders__item:nth-child(12):nth-child(even) {
+          left: calc(104px * 12 / 2); } }
+      @media all and (min-width: 768px) {
+        .leaders__item:nth-child(12):nth-child(even) {
+          left: calc(calc((80vw / 5) - 16px) * 12 / 2); } }
     @media only screen and (max-width: 575px) {
       .leaders__item:nth-child(4) {
         display: none; } }

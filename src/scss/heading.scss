@@ -11,6 +11,14 @@
     color: var(--headline-color);
     font-size: var(--headline-font-size);
     width: 100%;
+
+    @include respond(tablets) {
+      font-size: calc(var(--headline-font-size) + 10px);
+    }
+
+    @include respond(laptop) {
+      font-size: calc(var(--headline-font-size) + 20px);
+    }
   }
 
   &--secondary {
@@ -19,5 +27,13 @@
     font-size: var(--caption-font-size);
     margin-top: 8px;
     width: 100%;
+
+    @include respond(tablets) {
+      font-size: calc(var(--caption-font-size) + 5px);
+    }
+
+    @include respond(laptop) {
+      font-size: calc(var(--caption-font-size) + 10px);
+    }
   }
 }

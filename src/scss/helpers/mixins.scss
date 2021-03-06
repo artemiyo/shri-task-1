@@ -10,11 +10,6 @@
       @content;
     }
   }
-  @if $breakpoint == phone-large {
-    @media all and (min-width: 414px) {
-      @content;
-    }
-  }
   @if $breakpoint == landscape-tablets {
     @media all and (min-width: 576px) {
       @content;
@@ -26,12 +21,7 @@
     }
   }
   @if $breakpoint == laptop {
-    @media all and (min-width: 992px) {
-      @content;
-    }
-  }
-  @if $breakpoint == desktop {
-    @media all and (min-width: 1200px) {
+    @media all and (min-width: 1365px) {
       @content;
     }
   }

@@ -1,3 +1,0 @@
-@function vwHeight($height, $vw) {
-  @return calc($height - $vw);
-}

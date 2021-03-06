@@ -5,6 +5,14 @@
     margin: auto auto 0 auto;
     position: relative;
     width: 120px;
+
+    @include respond(phone-min) {
+      width: 100px;
+    }
+
+    @include respond(tablets) {
+      width: calc(80vw / 5);
+    }
   }
 
   &__item {
@@ -12,6 +20,16 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+
+    width: 120px;
+
+    @include respond(phone-min) {
+      width: 100px;
+    }
+
+    @include respond(tablets) {
+      width: calc(80vw / 5);
+    }
 
     &:not(:first-child) {
       position: absolute;
@@ -35,12 +53,16 @@
           }
         }
 
+        @include respond(phone-min) {
+          right: calc(84px * (#{$i - 1} / 2));
+        }
+
         @include respond(phone) {
           right: calc(104px * (#{$i - 1}) / 2);
         }
 
-        @include respond(phone-min) {
-          right: calc(94px * (#{$i - 1} / 2));
+        @include respond(tablets) {
+          right: calc(calc((80vw / 5) - 16px) * (#{$i - 1}) / 2);
         }
       }
 
@@ -56,7 +78,15 @@
         }
 
         @include respond(phone-min) {
-          left: calc(94px * (#{$i} / 2));
+          left: calc(84px * #{$i} / 2);
+        }
+
+        @include respond(phone) {
+          left: calc(104px * #{$i} / 2);
+        }
+
+        @include respond(tablets) {
+          left: calc(calc((80vw / 5) - 16px) * #{$i} / 2);
         }
       }
     }
