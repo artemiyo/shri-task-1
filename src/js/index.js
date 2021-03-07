@@ -1,6 +1,11 @@
 import data from '../data';
 
-function showLeaders({ title, subtitle, users, emoji }) {
+
+
+function showLeaders({ title, subtitle, users, emoji, selectedUserId }) {
+
+  const selectedUserIndex = users.findIndex(user => user.id === selectedUserId)
+
   return `
   <section class="leaders">
   <div class="container">
@@ -23,9 +28,9 @@ function showLeaders({ title, subtitle, users, emoji }) {
                     assets/images/4x/${user.avatar} 256w,
                   "
                   sizes="
-                    (max-width: 767px) 64px,
-                    (max-width: 992px) 128px,
-                    (max-width: 1399px) 192px,
+                    (max-width: 567px) 64px,
+                    (max-width: 768px) 128px,
+                    (max-width: 1365px) 192px,
                     256px
                     "
                   src="assets/images/1x/${user.avatar}"
@@ -46,6 +51,36 @@ function showLeaders({ title, subtitle, users, emoji }) {
             </div>
             <div class="person__place person__place--${userIndex + 1}">
               <span class="person__place-number">${userIndex + 1}</span>
+              ${userIndex === 0 && selectedUserIndex && users[selectedUserIndex]
+      ? `<div class="person person--selected">
+                    <div class="person__info">
+                      <div class="person__photo">
+                        <img
+                          srcset="
+                            assets/images/1x/${users[selectedUserIndex].avatar} 64w,
+                            assets/images/2x/${users[selectedUserIndex].avatar} 128w,
+                            assets/images/3x/${users[selectedUserIndex].avatar} 192w,
+                            assets/images/4x/${users[selectedUserIndex].avatar} 256w,
+                          "
+                          sizes="
+                            (max-width: 567px) 64px,
+                            (max-width: 768px) 128px,
+                            (max-width: 1365px) 192px,
+                            256px
+                            "
+                          src="assets/images/1x/${users[selectedUserIndex].avatar}"
+                          alt="${users[selectedUserIndex].avatar}"
+                        />
+                        <span class="person__photo person__photo__emoji" >👍</span>
+                      </div>
+                      <div class="person__data">
+                        <span class="person__name">${users[selectedUserIndex].name}</span>
+                        <span class="person__count">${users[selectedUserIndex].valueText}</span>
+                      </div>
+                    </div>
+                    <div class="person__place-number person__place-number--selected">${selectedUserIndex + 1}</div>
+                </div>`
+      : ""}
             </div>
           </div>
         </li>

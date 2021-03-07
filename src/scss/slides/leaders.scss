@@ -11,6 +11,10 @@
     }
 
     @include respond(tablets) {
+      width: calc(100vw / 5);
+    }
+
+    @include respond(laptop) {
       width: calc(80vw / 5);
     }
   }
@@ -28,6 +32,10 @@
     }
 
     @include respond(tablets) {
+      width: calc(100vw / 5);
+    }
+
+    @include respond(laptop) {
       width: calc(80vw / 5);
     }
 
@@ -62,6 +70,10 @@
         }
 
         @include respond(tablets) {
+          right: calc(calc((100vw / 5) - 16px) * (#{$i - 1}) / 2);
+        }
+
+        @include respond(laptop) {
           right: calc(calc((80vw / 5) - 16px) * (#{$i - 1}) / 2);
         }
       }
@@ -86,6 +98,10 @@
         }
 
         @include respond(tablets) {
+          left: calc(calc((100vw / 5) - 16px) * #{$i} / 2);
+        }
+
+        @include respond(laptop) {
           left: calc(calc((80vw / 5) - 16px) * #{$i} / 2);
         }
       }

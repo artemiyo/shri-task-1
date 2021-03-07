@@ -25,6 +25,11 @@
       @content;
     }
   }
+  @if $breakpoint == desktop {
+    @media all and (min-width: 1920px) {
+      @content;
+    }
+  }
 }
 
 // Bar Chart Primary
