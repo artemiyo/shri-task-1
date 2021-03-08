@@ -1,0 +1,30 @@
+.vote {
+  
+}
+
+.persons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    display: block;
+    width: 104px;
+    height: 142px;
+  }
+
+  &__button {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+
+    &:hover {
+      background: var(--bar-chart__secondary-background);
+      box-shadow: var(--bar-chart__secondary-shadow);
+      cursor: pointer;
+    }
+  }
+}

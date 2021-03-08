@@ -47,6 +47,11 @@
     &:nth-child(1) {
       z-index: 100;
       position: relative;
+      margin: 0 auto;
+
+      .person__info {
+        margin: 0 auto;
+      }
     }
 
     @for $i from 2 through 12 {
@@ -55,9 +60,13 @@
         z-index: #{12 - $i};
 
         .person {
-          &__place-number,
           &__info {
-            @include relative-right(6px);
+            margin-right: 16px;
+          }
+
+          &__place-number {
+            position: relative;
+            right: 8px;
           }
         }
 
@@ -83,9 +92,13 @@
         z-index: #{12 - $i};
 
         .person {
-          &__place-number,
           &__info {
-            @include relative-left(6px);
+            margin-left: 16px;
+          }
+
+          &__place-number {
+            position: relative;
+            left: 8px;
           }
         }
 

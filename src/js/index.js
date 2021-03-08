@@ -1,12 +1,11 @@
 import data from '../data';
 
 
-
 function showLeaders({ title, subtitle, users, emoji, selectedUserId }) {
 
-  const selectedUserIndex = users.findIndex(user => user.id === selectedUserId)
+	const selectedUserIndex = users.findIndex(user => user.id === selectedUserId)
 
-  return `
+	return `
   <section class="leaders">
   <div class="container">
     <div class="wrapper">
@@ -52,7 +51,7 @@ function showLeaders({ title, subtitle, users, emoji, selectedUserId }) {
             <div class="person__place person__place--${userIndex + 1}">
               <span class="person__place-number">${userIndex + 1}</span>
               ${userIndex === 0 && selectedUserIndex && users[selectedUserIndex]
-      ? `<div class="person person--selected">
+			? `<div class="person person--selected">
                     <div class="person__info">
                       <div class="person__photo">
                         <img
@@ -80,7 +79,7 @@ function showLeaders({ title, subtitle, users, emoji, selectedUserId }) {
                     </div>
                     <div class="person__place-number person__place-number--selected">${selectedUserIndex + 1}</div>
                 </div>`
-      : ""}
+			: ""}
             </div>
           </div>
         </li>
@@ -92,11 +91,60 @@ function showLeaders({ title, subtitle, users, emoji, selectedUserId }) {
 `
 }
 
-
-window.renderTemplate = function (alias, data) {
-  if (alias === "leaders") {
-    return showLeaders(data)
-  }
+function showVote({ title, subtitle, users, selectedUserId }) {
+	return `<section class="vote">
+	<div class="container">
+		<div class="wrapper">
+			<div class="heading heading__container">
+				<h1 class="heading heading--primary">${title}</h1>
+				<h2 class="heading heading--secondary">${subtitle}</h2>
+			</div>
+			<ul class="persons">
+				${users.slice(0, 8).map(user => `
+				<li class="persons__item">
+				<button class="persons__button">
+					<div class="person">
+						<div class="person__info">
+							<div class="person__photo">
+								<img
+									srcset="
+										assets/images/1x/${user.avatar}  64w,
+										assets/images/2x/${user.avatar} 128w,
+										assets/images/3x/${user.avatar} 192w,
+										assets/images/4x/${user.avatar} 256w
+									"
+									sizes="
+									 (max-width: 567px) 64px,
+									 (max-width: 768px) 128px,
+									 (max-width: 1365px) 192px,
+									 256px
+									 "
+									src="assets/images/1x/${user.avatar}"
+									alt="${user.avatar}"
+								/>
+							</div>
+						</div>
+						<div class="person__data">
+							<span class="person__name">${user.name}</span>
+						</div>
+					</div>
+				</button>
+			</li>`).join("")}
+			</ul>
+		</div>
+	</div>
+</section>`
 }
 
-document.body.innerHTML = renderTemplate("leaders", data[0].data)
+
+window.renderTemplate = function (alias, data) {
+	if (alias === "leaders") {
+		return showLeaders(data)
+	}
+
+	if (alias === "vote") {
+		return showVote(data)
+	}
+}
+
+document.body.innerHTML = renderTemplate("vote", data[3].data)

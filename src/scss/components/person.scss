@@ -5,14 +5,28 @@
 
   &--selected {
     margin-top: 0;
+
+    .person__info {
+      width: 100%;
+    }
   }
 
   width: 100%;
+
   &__info {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    width: 104px;
+
+    @include respond(phone-min) {
+      width: 84px;
+    }
+
+    @include respond(tablets) {
+      width: auto;
+    }
   }
 
   &__photo {
@@ -72,6 +86,8 @@
 
     & span {
       display: block;
+      height: 100%;
+      padding: 0 5px;
     }
 
     @include respond(laptop) {
@@ -88,7 +104,8 @@
 
   &__name {
     font-family: "Roboto 500";
-    width: 88px;
+    min-width: 88px;
+    width: 100%;
     height: 36px;
     font-size: 16px;
     color: var(--color-white);
@@ -142,7 +159,7 @@
     height: 100%;
     border-radius: 6px 6px 0 0;
     margin-top: 16px;
-    padding: 18px;
+    padding: 16px;
 
     &--1 {
       min-height: 108px;
@@ -242,6 +259,10 @@
       display: block;
       font-size: 30px;
       color: var(--color-white);
+
+      &:not(:first-child) {
+        width: calc(100% - 16px);
+      }
 
       @include respond(desktop) {
         font-size: 50px;
