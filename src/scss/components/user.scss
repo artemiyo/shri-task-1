@@ -1,12 +1,20 @@
 @import "../helpers/mixins.scss";
 
-.person {
+.user {
   margin-top: auto;
 
   &--selected {
     margin-top: 0;
 
-    .person__info {
+    @include respond(phone-min) {
+      @include visually-hidden;
+    }
+
+    @include respond(landscape-tablets) {
+      @include visually-hidden;
+    }
+
+    .user__info {
       width: 100%;
     }
   }

@@ -2,7 +2,8 @@
 @import "./base.scss";
 @import "./heading.scss";
 
-@import "./components/person.scss";
+@import "./components/user.scss";
 
-@import "./slides/leaders.scss";
-@import './slides/vote.scss';
+@import "./alias/leaders.scss";
+@import './alias/vote.scss';
+@import './alias/chart.scss';

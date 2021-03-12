@@ -59,7 +59,7 @@ function css() {
 }
 
 function images() {
-    return src('./src/assets/images/*/*.jpg')
+    return src(['./src/assets/images/*/*.jpg', './src/assets/images/*.svg'])
         .pipe(dest('./build/assets/images'))
 };
 
@@ -97,5 +97,5 @@ bundler.on('log', log.info)
 task("images", images);
 task("fonts", fonts);
 task('watch', browserSync);
-task('build', series(clear, html, parallel(css, bundle), fonts, images));
+task('build', series(clear, html, parallel(css, bundle, fonts, images)));
 task('dev', series('build', 'watch'))

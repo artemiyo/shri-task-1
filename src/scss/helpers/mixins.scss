@@ -34,11 +34,13 @@
 
 // Bar Chart Primary
 
-@mixin bar-chart($height: 325px, $type: "secondary") {
+@mixin bar-chart($height: 325px, $type: "secondary", $width: var(--bar-chart-width)) {
   background: var(--bar-chart__#{$type}-background);
   box-shadow: var(--bar-chart__#{$type}-shadow);
-  width: var(--bar-chart-width);
+  width: $width;
   height: $height;
+  border-radius: 6px;
+
 }
 
 // Bar Chart positioning
@@ -51,4 +53,12 @@
 @mixin relative-right($right) {
   position: relative;
   right: $right;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
 }
