@@ -3875,7 +3875,7 @@ body {
   -ms-flex-pack: justify;
   justify-content: space-between;
   height: 100vh;
-  padding: 20px;
+  padding: 24px;
   overflow-x: hidden; }
 
 .chart__bars {
@@ -7026,3 +7026,28 @@ body {
       width: 40px;
       height: 70%;
       border-radius: 6px; }
+
+.chart__users {
+  margin-top: 8px; }
+
+.chart__user:not(:last-child) {
+  padding: 16px 0;
+  border-bottom: 2px solid var(--color-light-grey); }
+
+.chart__user__info {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  width: 100%; }
+
+.chart__user__photo {
+  width: 40px;
+  height: 40px; }
+
+.chart__user__data {
+  text-align: start;
+  margin-left: 14px; }

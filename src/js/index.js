@@ -129,15 +129,65 @@ function showVote({ title, subtitle, users, selectedUserId }) {
           </section>`
 }
 
+function showChart({ title, subtitle, values, users }) {
+  return `<section class="chart">
+  <div class="container chart__container">
+    <div class="heading heading__container">
+      <h1 class="heading heading--primary">${title}</h1>
+      <h2 class="heading heading--secondary">${subtitle}</h2>
+    </div>
+    <div class="chart__wrapper">
+      <div class="chart__bars">
+      ${values.splice(0, values.length - 3).map(({ title, value, active }) => `
+        <div class="chart__item">
+          ${value > 0 ? `<span class="chart__item__value">${value}</span>` : ""}
+          <div class="chart__item__bar chart__item__bar--${value} ${active ? "chart__item__bar--active" : ""}"></div>
+          <span class="chart__item__title">${title}</span>
+        </div>
+    `).join('')}
+      </div>
+      <div class="chart__users">
+      ${users.map(({ id, name, avatar, valueText }) => `
+        <div class="user chart__user">
+          <div class="user__info chart__user__info">
+            <div class="user__photo chart__user__photo">
+              <img
+                srcset="
+                  assets/images/1x/${avatar} 64w,
+                  assets/images/2x/${avatar} 128w,
+                  assets/images/3x/${avatar} 192w,
+                  assets/images/4x/${avatar} 256w,
+                "
+                sizes="
+                  (max-width: 567px) 64px,
+                  (max-width: 768px) 128px,
+                  (max-width: 1365px) 192px,
+                  256px
+                  "
+                src="assets/images/1x/${avatar}"
+                alt="${avatar}"
+              />
+          </div>
+          <div class="user__data chart__user__data">
+            <span class="user__name">${name}</span>
+            <span class="user__count">${valueText}</span>
+          </div>
+        </div>
+      `).join("")}
+        </div>
+    </div>
+  </div>
+</section>`
+}
+
 
 window.renderTemplate = function (alias, data) {
-  if (alias === "leaders") {
-    return showLeaders(data)
-  }
 
-  if (alias === "vote") {
-    return showVote(data)
+  switch (alias) {
+    case "leaders": return showLeaders(data);
+    case 'vote': return showVote(data);
+    case "chart": return showChart(data);
   }
 }
 
-// document.body.innerHTML = renderTemplate("leaders", data[0].data)
+document.body.innerHTML = renderTemplate("chart", data[6].data)
