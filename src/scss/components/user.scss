@@ -143,7 +143,7 @@
   &__count {
     font-size: 14px;
     color: var(--color-light-grey);
-    margin-top: 6px;
+    margin-top: 4px;
 
     @include respond(phone-min) {
       font-size: 12px;

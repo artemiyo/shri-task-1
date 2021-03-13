@@ -138,16 +138,16 @@ function showChart({ title, subtitle, values, users }) {
     </div>
     <div class="chart__wrapper">
       <div class="chart__bars">
-      ${values.splice(0, values.length - 3).map(({ title, value, active }) => `
-        <div class="chart__item">
+      ${values.splice(4, 9).map(({ title, value, active }) => `
+        <div class="chart__item ${active ? "chart__item__bar--active" : ""}">
           ${value > 0 ? `<span class="chart__item__value">${value}</span>` : ""}
-          <div class="chart__item__bar chart__item__bar--${value} ${active ? "chart__item__bar--active" : ""}"></div>
+          <div class="chart__item__bar chart__item__bar--${value}"></div>
           <span class="chart__item__title">${title}</span>
         </div>
     `).join('')}
       </div>
-      <div class="chart__users">
-      ${users.map(({ id, name, avatar, valueText }) => `
+      <ul class="chart__users">
+      ${users.map(({ name, avatar, valueText }) => `
         <div class="user chart__user">
           <div class="user__info chart__user__info">
             <div class="user__photo chart__user__photo">
@@ -170,11 +170,12 @@ function showChart({ title, subtitle, values, users }) {
           </div>
           <div class="user__data chart__user__data">
             <span class="user__name">${name}</span>
-            <span class="user__count">${valueText}</span>
+            <span class="user__count chart__user__count">${valueText}</span>
           </div>
         </div>
-      `).join("")}
         </div>
+      `).join("")}
+        </ul>
     </div>
   </div>
 </section>`
@@ -190,4 +191,4 @@ window.renderTemplate = function (alias, data) {
   }
 }
 
-document.body.innerHTML = renderTemplate("chart", data[6].data)
+document.body.innerHTML = window.renderTemplate("chart", data[6].data)

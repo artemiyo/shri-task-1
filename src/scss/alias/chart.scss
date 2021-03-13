@@ -4,11 +4,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    padding: 24px;
+    padding: 24px 24px 24px 24px;
     overflow-x: hidden;
-  }
-
-  &__wrapper {
   }
 
   &__bars {
@@ -16,6 +13,24 @@
     justify-content: flex-end;
     align-items: flex-end;
     height: 393px;
+
+    @include respond(phone-min) {
+      height: 50vh;
+    }
+
+    @include respond(landscape-tablets) {
+      height: 180px;
+      display: flex;
+      justify-content: center;
+    }
+
+    @include respond(tablets) {
+      height: 70vh;
+    }
+
+    @include respond(laptop) {
+      height: 60vh;
+    }
   }
 
   &__item {
@@ -26,6 +41,14 @@
     width: 40px;
     height: 100%;
 
+    @include respond(tablets) {
+      width: 7vw;
+    }
+
+    @include respond(laptop) {
+      width: 8vw;
+    }
+
     &:not(:last-child) {
       margin-right: 24px;
     }
@@ -34,39 +57,138 @@
       font-size: 16px;
       color: var(--color-light-grey);
       margin-top: 12px;
+
+      @include respond(tablets) {
+        font-size: 2vw;
+      }
     }
 
     &__value {
       font-size: 20px;
       color: var(--color-light-grey);
+
+      @include respond(tablets) {
+        font-size: 2.5vw;
+      }
     }
 
     &__bar {
       margin-top: 8px;
       @for $var from 0 through 182 {
-        $value: ($var / 182) * 70%;
+        $height: ($var / 182) * 65%;
         &--#{$var} {
-          @include bar-chart($value, "secondary", 40px);
+          @include bar-chart($height, "secondary", 40px);
           min-height: 8px;
           border-radius: 6px;
           max-height: 70%;
+
+          @include respond(tablets) {
+            @include bar-chart($height, "secondary", 7vw);
+          }
+
+          @include respond(laptop) {
+            @include bar-chart($height, "secondary", 8vw);
+          }
         }
 
         &--active {
-          @include bar-chart($value, "primary", 40px);
+          & > div {
+            @include bar-chart($height, "primary", 40px);
+
+            @include respond(tablets) {
+              @include bar-chart($height, "primary", 7vw);
+            }
+
+            @include respond(laptop) {
+              @include bar-chart($height, "primary", 8vw);
+            }
+          }
+
+          & > span:first-child {
+            font-family: "Roboto 700";
+            color: var(--color-black);
+          }
         }
       }
     }
   }
 
   &__users {
-    margin-top: 8px;
+    @include respond(landscape-tablets) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 24px;
+    }
   }
 
   &__user {
-    &:not(:last-child) {
-      padding: 16px 0;
-      border-bottom: 2px solid var(--color-light-grey);
+    padding: 16px 0;
+
+    @include respond(phone-min) {
+      &:last-child {
+        display: none;
+      }
+    }
+
+    @include respond(phone) {
+      &:not(:first-child) {
+        border-top: 2px solid rgba(191, 191, 191, 0.3);
+      }
+
+      &:nth-child(2) {
+        padding: 16px 0 0 0;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    @include respond(landscape-tablets) {
+      width: 220px;
+      padding: 0;
+      &:not(:first-child) {
+        border-top: none;
+        position: relative;
+
+        &::before {
+          display: block;
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 2px;
+          top: 0;
+          left: -16px;
+          background-color: rgba(191, 191, 191, 0.3);
+        }
+      }
+
+      &:nth-child(2) {
+        padding: 0;
+      }
+
+      &:not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+
+    @include respond(laptop) {
+      width: 280px;
+
+      &:not(:first-child) {
+        &::before {
+          left: -28px;
+        }
+      }
+
+      &:last-child {
+        display: block;
+      }
+    }
+
+    @include respond(desktop) {
+      width: 370px;
     }
 
     &__info {
@@ -78,11 +200,26 @@
     &__photo {
       width: 40px;
       height: 40px;
+
+      @include respond(laptop) {
+        width: 80px;
+        height: 80px;
+      }
+
+      @include respond(desktop) {
+        width: 140px;
+        height: 100px;
+      }
     }
 
     &__data {
       text-align: start;
-      margin-left: 14px;
+      margin: 0 0 0 14px;
+    }
+
+    &__count {
+      margin-top: 4px;
+      width: 100%;
     }
   }
 }
