@@ -2,15 +2,17 @@ const browsersync = require("browser-sync");
 const { src, dest, parallel, series, watch, task } = require("gulp");
 const source = require('vinyl-source-stream')
 const babelify = require('babelify');
+const uglify = require("gulp-uglify");
 const watchify = require('watchify');
 const browserify = require('browserify');
 const assign = require('lodash.assign');
 const autoprefixer = require('gulp-autoprefixer');
-const changed = require("gulp-changed");
+const buffer = require("vinyl-buffer")
 const clean = require("gulp-clean");
 const sass = require("gulp-sass");
 const { log } = require("gulp-clean/utils");
-const rename = require('gulp-rename')
+const rename = require('gulp-rename');
+const cleanCSS = require('gulp-clean-css');
 
 const customOptions = {
     entries: ['./src/js/index.js'],
@@ -27,6 +29,8 @@ function bundle() {
         .on('error', log.error.bind(log, "Browserify Error"))
         .pipe(source('./src/js/index.js'))
         .pipe(rename('stories.js'))
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(dest('./build'))
         .pipe(browsersync.stream())
 }
@@ -54,6 +58,7 @@ function css() {
             cascade: false
         }))
         .pipe(rename('stories.css'))
+        .pipe(cleanCSS())
         .pipe(dest('./build'))
         .pipe(browsersync.stream())
 }
