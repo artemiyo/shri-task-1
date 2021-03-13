@@ -31,6 +31,10 @@
     @include respond(laptop) {
       height: 60vh;
     }
+
+    @include respond(desktop) {
+      height: 70vh;
+    }
   }
 
   &__item {
@@ -106,7 +110,7 @@
 
           & > span:first-child {
             font-family: "Roboto 700";
-            color: var(--color-black);
+            color: var(--chart-value-color);
           }
         }
       }

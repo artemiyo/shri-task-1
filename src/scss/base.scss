@@ -61,6 +61,8 @@
   --divider-background: var(--color-light-grey);
 
   --photo--grayscale: grayscale(100%);
+
+  --chart-value-color: var(--color-white);
 }
 
 .theme_dark {
@@ -124,6 +126,7 @@
   --divider-background: var(--color-light-grey);
 
   --photo--grayscale: grayscale(100%);
+  --chart-value-color: var(--color-white);
 }
 
 .theme_light {
@@ -178,6 +181,8 @@
   --divider-background: var(--color-light-grey);
 
   --photo--grayscale: grayscale(0);
+  --chart-value-color: var(--color-black);
+
 }
 
 *,
