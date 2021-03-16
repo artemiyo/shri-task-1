@@ -3,6 +3,7 @@
     height: 328px;
     width: 328px;
     position: relative;
+    background: conic-gradient(red green blue);
 
     &__slice {
       &-outer {
@@ -15,20 +16,21 @@
         clip: rect(0px, 328px, 328px, 167px);
 
         &--first {
-          transform: rotate(-45deg);
-          clip-path: polygon(100% 62%, 57% 54%, 83% 96%);
+          transform: rotate(269deg);
+          clip-path: polygon(100% 28%, 55% 50%, 32% 40%, 100% 76%, 100% 0);
         }
 
         &--second {
-          transform: rotate(72deg);
+          transform: rotate(27deg);
+          clip-path: polygon(46% -3%, 30% 56%, 99% 22%, 100% 0);
         }
 
         &--third {
-          transform: rotate(144deg);
+          transform: rotate(93deg);
         }
 
         &--fourth {
-          transform: rotate(216deg);
+          transform: rotate(267deg);
         }
       }
 
@@ -47,6 +49,7 @@
               rgba(255, 239, 153, 0.32) 100%);
           box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
             inset 0px 0px 20px rgba(255, 176, 57, 0.9);
+          // clip: rect(0px, 164px, 164px, 0px);
         }
 
         &--second {
@@ -55,7 +58,7 @@
               rgba(255, 239, 153, 0.12) 100%);
           box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
             inset 0px 0px 20px rgba(255, 176, 57, 0.4);
-          clip: rect(0px, 164px, 164px, 0px);
+          clip: rect(0, 140px, 130px, 0);
         }
 
         &--third {
@@ -84,8 +87,8 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background: #fff;
-        width: 246px;
-        height: 246px;
+        width: 228px;
+        height: 228px;
         display: block;
         clip: auto;
       }
