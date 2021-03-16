@@ -16,11 +16,17 @@ const cleanCSS = require('gulp-clean-css');
 
 const customOptions = {
     entries: ['./src/js/index.js'],
-    debug: true
+    debug: false,
+    cache: {}
+
 }
 
 const options = assign({}, watchify.args, customOptions);
 const bundler = watchify(browserify(options))
+
+bundler.on('update', bundle)
+bundler.on('log', log.info)
+
 
 function bundle() {
     return bundler
@@ -96,9 +102,6 @@ watchFiles()
 task('html', html)
 task('css', css);
 task('js', bundle);
-bundler.on('update', bundle)
-bundler.on('log', log.info)
-
 task("images", images);
 task("fonts", fonts);
 task('watch', browserSync);

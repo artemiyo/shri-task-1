@@ -1,0 +1,94 @@
+.diagram {
+  &__donut {
+    height: 328px;
+    width: 328px;
+    position: relative;
+
+    &__slice {
+      &-outer {
+        height: 328px;
+        width: 328px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        clip: rect(0px, 328px, 328px, 167px);
+
+        &--first {
+          transform: rotate(-45deg);
+          clip-path: polygon(100% 62%, 57% 54%, 83% 96%);
+        }
+
+        &--second {
+          transform: rotate(72deg);
+        }
+
+        &--third {
+          transform: rotate(144deg);
+        }
+
+        &--fourth {
+          transform: rotate(216deg);
+        }
+      }
+
+      &-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 328px;
+        height: 328px;
+        border-radius: 50%;
+        transform: rotate(72deg);
+
+        &--first {
+          background: radial-gradient(49.84% 49.84% at 49.84% 50.16%,
+              rgba(255, 184, 0, 0.56) 81.25%,
+              rgba(255, 239, 153, 0.32) 100%);
+          box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
+            inset 0px 0px 20px rgba(255, 176, 57, 0.9);
+        }
+
+        &--second {
+          background: radial-gradient(49.84% 49.84% at 49.84% 50.16%,
+              rgba(255, 184, 0, 0.24) 81.25%,
+              rgba(255, 239, 153, 0.12) 100%);
+          box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
+            inset 0px 0px 20px rgba(255, 176, 57, 0.4);
+          clip: rect(0px, 164px, 164px, 0px);
+        }
+
+        &--third {
+          background: radial-gradient(49.84% 49.84% at 49.84% 50.16%,
+              rgba(166, 166, 166, 0.1725) 82.81%,
+              rgba(203, 203, 203, 0.05) 92.19%);
+          box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
+            inset 0px 0px 20px rgba(105, 105, 105, 0.2);
+          clip: rect(0px, 164px, 164px, 0px);
+        }
+
+        &--fourth {
+          background: radial-gradient(49.84% 49.84% at 49.84% 50.16%,
+              rgba(191, 191, 191, 0.345) 82.81%,
+              rgba(228, 228, 228, 0.1) 92.19%);
+          box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
+            inset 0px 0px 20px rgba(131, 131, 131, 0.6);
+          clip: rect(0px, 164px, 164px, 0px);
+        }
+      }
+
+      &-center {
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: 246px;
+        height: 246px;
+        display: block;
+        clip: auto;
+      }
+    }
+  }
+}

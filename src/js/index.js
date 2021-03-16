@@ -191,4 +191,4 @@ window.renderTemplate = function (alias, data) {
   }
 }
 
-document.body.innerHTML = window.renderTemplate("chart", data[6].data)
+// document.body.innerHTML = window.renderTemplate("chart", data[6].data)
