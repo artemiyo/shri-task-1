@@ -1,40 +1,125 @@
-$size: 500px;
-$half-size: $size / 2;
-
 .diagram {
+  $items: 1, 2, 3, 4;
+  height: 100%;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    @include respond(landscape-tablets) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: initial;
+      margin-top: 29px;
+    }
+
+    @include respond(tablets) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    @include respond(laptop-min) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+      margin-top: 29px;
+    }
+  }
+
   &__donut {
-    height: $size;
-    width: $size;
+    height: 328px;
+    width: 328px;
     position: relative;
-    background: conic-gradient(red green blue);
+    overflow: hidden;
+    margin: 32px auto 0 auto;
+
+    @include respond(phone-min) {
+      width: 260px;
+      height: 260px;
+      margin: 22px auto 0 auto;
+    }
+
+    @include respond(landscape-tablets) {
+      width: 240px;
+      height: 240px;
+      min-width: 240px;
+      margin: 0 40px 0 18px;
+    }
+
+    @include respond(tablets) {
+      width: 500px;
+      height: 500px;
+      margin: 22px auto 0 auto;
+    }
+
+    @include respond(laptop-min) {
+      width: 35vw;
+      height: 35vw;
+      margin: 0 0px 0 42px;
+    }
 
     &__slice {
       &-outer {
-        height: $size;
-        width: $size;
+        height: 328px;
+        width: 328px;
         border-radius: 50%;
         position: absolute;
         top: 0;
         left: 0;
-        clip: rect(0px, $size, $size, $half-size);
+        clip: rect(0px, 328px, 328px, 164px);
 
-        &--first {
+        @include respond(phone-min) {
+          width: 260px;
+          height: 260px;
+          clip: rect(0px, 260px, 260px, 130px);
+        }
+
+        @include respond(landscape-tablets) {
+          width: 240px;
+          height: 240px;
+          clip: rect(0px, 240px, 240px, 120px);
+        }
+
+        @include respond(tablets) {
+          width: 500px;
+          height: 500px;
+          clip: rect(0px, 500px, 500px, 250px);
+        }
+
+        @include respond(laptop-min) {
+          width: 35vw;
+          height: 35vw;
+          clip: rect(0px, 35vw, 35vw, 17.5vw);
+        }
+
+        &--1 {
+          position: relative;
           transform: rotate(269deg);
           clip-path: polygon(100% 28%, 55% 50%, 32% 40%, 100% 76%, 100% 0);
         }
 
-        &--second {
+        &--2 {
           transform: rotate(28deg);
           clip-path: polygon(43% 0%, 30% 60%, 98% 21%, 100% 0);
         }
 
-        &--third {
+        &--3 {
           transform: rotate(88deg);
           clip-path: polygon(100% 0%, 46% 0%, 32% 40%, 100% 76%, 100% 0);
-
         }
 
-        &--fourth {
+        &--4 {
           transform: rotate(207deg);
           clip-path: polygon(100% 0, 0 0, 40% 45%, 100% 87%, 100% 0);
         }
@@ -44,44 +129,36 @@ $half-size: $size / 2;
         position: absolute;
         top: 0;
         left: 0;
-        width: $size;
-        height: $size;
+        width: 328px;
+        height: 328px;
         border-radius: 50%;
         transform: rotate(72deg);
 
-        &--first {
-          background: radial-gradient(49.84% 49.84% at 49.84% 50.16%,
-              rgba(255, 184, 0, 0.56) 81.25%,
-              rgba(255, 239, 153, 0.32) 100%);
-          box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
-            inset 0px 0px 20px rgba(255, 176, 57, 0.9);
+        @include respond(phone-min) {
+          width: 260px;
+          height: 260px;
         }
 
-        &--second {
-          background: radial-gradient(49.84% 49.84% at 49.84% 50.16%,
-              rgba(255, 184, 0, 0.24) 81.25%,
-              rgba(255, 239, 153, 0.12) 100%);
-          box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
-            inset 0px 0px 20px rgba(255, 176, 57, 0.4);
-          clip: rect(0, $half-size, $half-size, 0);
+        @include respond(landscape-tablets) {
+          width: 240px;
+          height: 240px;
         }
 
-        &--third {
-          background: radial-gradient(49.84% 49.84% at 49.84% 50.16%,
-              rgba(166, 166, 166, 0.1725) 82.81%,
-              rgba(203, 203, 203, 0.05) 92.19%);
-          box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
-            inset 0px 0px 20px rgba(105, 105, 105, 0.2);
-          clip: rect(0px, $size, $size, 0px);
+        @include respond(tablets) {
+          width: 500px;
+          height: 500px;
         }
 
-        &--fourth {
-          background: radial-gradient(49.84% 49.84% at 49.84% 50.16%,
-              rgba(191, 191, 191, 0.345) 82.81%,
-              rgba(228, 228, 228, 0.1) 92.19%);
-          box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
-            inset 0px 0px 20px rgba(131, 131, 131, 0.6);
-          clip: rect(0px, $size, $size, 0px);
+        @include respond(laptop-min) {
+          width: 35vw;
+          height: 35vw;
+        }
+
+        @each $item in $items {
+          &--#{$item} {
+            background: var(--diagram-slice-background-#{$item});
+            box-shadow: var(--diagram-slice-shadow-#{$item});
+          }
         }
       }
 
@@ -91,12 +168,218 @@ $half-size: $size / 2;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: #fff;
-        width: $size * 0.7;
-        height: $size * 0.7;
-        display: block;
-        clip: auto;
+        background: var(--body-background);
+        width: 328px * 0.7;
+        height: 328px * 0.7;
+
+        @include respond(phone-min) {
+          width: 260px * 0.7;
+          height: 260px * 0.7;
+        }
+
+        @include respond(landscape-tablets) {
+          width: 240px * 0.7;
+          height: 240px * 0.7;
+        }
+
+        @include respond(tablets) {
+          width: 500px * 0.7;
+          height: 500px * 0.7;
+        }
+
+        @include respond(laptop-min) {
+          width: 35vw * 0.7;
+          height: 35vw * 0.7;
+        }
+
+        &__wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 164px;
+          margin: 0 auto;
+          height: 100%;
+
+          @include respond(phone-min) {
+            width: 130px;
+          }
+
+          @include respond(landscape-tablets) {
+            width: 120px;
+          }
+
+          @include respond(tablets) {
+            width: 250px;
+          }
+
+          @include respond(laptop-min) {
+            width: 17.5vw;
+          }
+        }
+
+        &__commits {
+          text-align: center;
+          line-height: 32px;
+          font-size: 30px;
+          font-family: "Roboto 700";
+          margin-bottom: 6px;
+          color: var(--diagram-commits);
+
+          @include respond(phone-min) {
+            font-size: 25px;
+            line-height: 25px;
+            margin-bottom: 10px;
+          }
+
+          @include respond(landscape-tablets) {
+            font-size: 20px;
+            line-height: 20px;
+          }
+
+          @include respond(tablets) {
+            font-size: 30px;
+            line-height: 30px;
+            margin-bottom: 15px;
+          }
+
+          @include respond(laptop-min) {
+            font-size: 3vw;
+            line-height: 3vw;
+          }
+        }
+
+        &__plus {
+          text-align: center;
+          font-size: 20px;
+          line-height: 22px;
+          color: var(--color-light-grey);
+
+          @include respond(phone-min) {
+            font-size: 16px;
+            line-height: 16px;
+          }
+
+          @include respond(landscape-tablets) {
+            font-size: 16px;
+            line-height: 16px;
+          }
+
+          @include respond(tablets) {
+            font-size: 25px;
+            line-height: 25px;
+          }
+
+          @include respond(laptop-min) {
+            font-size: 2vw;
+            line-height: 2vw;
+          }
+        }
       }
+    }
+  }
+
+  &__legend {
+    width: 100%;
+    margin-right: 18px;
+
+    @include respond(tablets) {
+      margin-right: 0;
+    }
+
+    @include respond(laptop-min) {
+      width: 100%;
+      padding: 0 42px 0 4vw;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+
+      @include respond(phone-min) {
+        padding: 14px 0;
+      }
+
+      @include respond(tablets) {
+        padding: 25px 0;
+      }
+
+      @include respond(laptop-min) {
+        padding: 2.5vw 0;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 2px solid var(--divider-background);
+      }
+    }
+
+    &__circle {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-right: 10px;
+
+      @include respond(tablets) {
+        width: 2.5vw;
+        height: 2.5vw;
+      }
+
+      @include respond(laptop-min) {
+        width: 1.6vw;
+        height: 1.6vw;
+      }
+
+      @each $item in $items {
+        &--#{$item} {
+          background: var(--diagram-slice-background-#{$item});
+          box-shadow: var(--diagram-slice-shadow-#{$item});
+        }
+      }
+    }
+
+    &__variants {
+      display: flex;
+      align-items: center;
+    }
+
+    &__text {
+      font-size: 16px;
+      font-family: "Roboto 500";
+      color: var(--diagram-commits);
+
+      @include respond(phone-min) {
+        font-size: 14px;
+      }
+
+      @include respond(tablets) {
+        font-size: 20px;
+      }
+
+      @include respond(laptop-min) {
+        font-size: 1.4vw;
+      }
+    }
+
+    &__value {
+      color: var(--color-light-grey);
+
+      @include respond(phone-min) {
+        font-size: 14px;
+      }
+
+      @include respond(tablets) {
+        font-size: 20px;
+      }
+
+      @include respond(laptop-min) {
+        font-size: 1.4vw;
+      }
+    }
+
+    &__plus-commits {
+      margin-right: 16px;
     }
   }
 }

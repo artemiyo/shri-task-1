@@ -78,8 +78,8 @@
 
     &__bar {
       margin-top: 8px;
-      @for $var from 0 through 182 {
-        $height: ($var / 182) * 65%;
+      @for $var from 0 through 100 {
+        $height: ($var / 182) * 100%;
         &--#{$var} {
           @include bar-chart($height, "secondary", 40px);
           min-height: 8px;
@@ -137,7 +137,7 @@
 
     @include respond(phone) {
       &:not(:first-child) {
-        border-top: 2px solid rgba(191, 191, 191, 0.3);
+        border-top: 2px solid var(--divider-background);
       }
 
       &:nth-child(2) {

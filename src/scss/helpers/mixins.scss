@@ -1,31 +1,42 @@
 // Media Queries
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone-min {
+  @if $breakpoint==phone-min {
     @media all and (max-width: 340px) {
       @content;
     }
   }
-  @if $breakpoint == phone {
+
+  @if $breakpoint==phone {
     @media all and (min-width: 376px) {
       @content;
     }
   }
-  @if $breakpoint == landscape-tablets {
+
+  @if $breakpoint==landscape-tablets {
     @media all and (min-width: 576px) {
       @content;
     }
   }
-  @if $breakpoint == tablets {
+
+  @if $breakpoint==tablets {
     @media all and (min-width: 768px) {
       @content;
     }
   }
-  @if $breakpoint == laptop {
+
+  @if $breakpoint==laptop-min {
+    @media all and (min-width: 1000px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==laptop {
     @media all and (min-width: 1365px) {
       @content;
     }
   }
-  @if $breakpoint == desktop {
+
+  @if $breakpoint==desktop {
     @media all and (min-width: 1920px) {
       @content;
     }
@@ -40,7 +51,6 @@
   width: $width;
   height: $height;
   border-radius: 6px;
-
 }
 
 // Bar Chart positioning
