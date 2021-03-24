@@ -28,43 +28,30 @@
 				@for $var from 1 through 24 {
 					&__#{$var} {
 						&:nth-child(#{$var}):nth-child(even) {
-							position: relative;
-							left: 21.5px;
-							top: -24px * $var;
+							position: absolute;
+							left: 20px;
+							top: 18px * ($var - 1);
 						}
 
 						&:nth-child(#{$var}):nth-child(odd) {
 							position: relative;
-							top: -24px * $var;
+							bottom: 4.5px * ($var);
 						}
 
 						&--mid {
 							height: 54px;
 
-							&:nth-child(#{$var}):nth-child(odd) {
-								top: calc(-25px * #{$var}) !important
-							}
-
 							&:nth-child(#{$var}):nth-child(even) {
-								top: calc(-24px * #{$var}) !important
+								top: 18px * ($var - 1);
 							}
 						}
 
 						&--max {
 							height: 74px;
-
-							&:nth-child(#{$var}):nth-child(odd) {
-								top: calc(-27.6px * #{$var}) !important
-							}
-
-							&:nth-child(#{$var}):nth-child(even) {
-								top: calc(-27.6px * #{$var}) !important
-							}
 						}
 
 						&--extra {
 							height: 95px;
-							top: calc(-24px * #{$var}) !important
 						}
 					}
 				}

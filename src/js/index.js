@@ -255,12 +255,14 @@ function showActivity({ title, subtitle, data }) {
     <div class="activity__visual">
       ${Object.keys(data).slice(0, 1).map(day => (
     `<div class="activity__visual__day">
-            <div class="activity__visual__hour">
-              ${data[day].map((hour, index) => (
-      `<img 
-            class="activity__visual__hour__value activity__visual__hour__value__${index + 1} activity__visual__hour__value__${index + 1}--${getValueByHour(hour)}"
-            src="./assets/images/2x/${getValueByHour(hour)}-dark.png" alt="${day}_${hour}"/>`
-    )).join("")}
+          <div class="activity__visual__hour">
+            ${data[day].map((hour, index) => (
+      `
+          <img 
+              class="activity__visual__hour__value activity__visual__hour__value__${index + 1} activity__visual__hour__value__${index + 1}--${getValueByHour(hour)}"
+              src="./assets/images/2x/${getValueByHour(hour)}-dark.png" alt="${day}_${hour}"
+              />`)
+    ).join("")}
         </div>
       </div>`
   )).join("")}
