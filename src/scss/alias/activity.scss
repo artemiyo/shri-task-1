@@ -1,0 +1,74 @@
+.activity {
+	height: 100%;
+
+	&__container {}
+
+	&__visual {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 50px;
+		height: 328px;
+
+		&__day {
+			position: relative;
+			height: 100%;
+		}
+
+		&__hour {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+
+			&__value {
+				width: 43px;
+				height: 43px;
+
+				@for $var from 1 through 24 {
+					&__#{$var} {
+						&:nth-child(#{$var}):nth-child(even) {
+							position: relative;
+							left: 21.5px;
+							top: -24px * $var;
+						}
+
+						&:nth-child(#{$var}):nth-child(odd) {
+							position: relative;
+							top: -24px * $var;
+						}
+
+						&--mid {
+							height: 54px;
+
+							&:nth-child(#{$var}):nth-child(odd) {
+								top: calc(-25px * #{$var}) !important
+							}
+
+							&:nth-child(#{$var}):nth-child(even) {
+								top: calc(-24px * #{$var}) !important
+							}
+						}
+
+						&--max {
+							height: 74px;
+
+							&:nth-child(#{$var}):nth-child(odd) {
+								top: calc(-27.6px * #{$var}) !important
+							}
+
+							&:nth-child(#{$var}):nth-child(even) {
+								top: calc(-27.6px * #{$var}) !important
+							}
+						}
+
+						&--extra {
+							height: 95px;
+							top: calc(-24px * #{$var}) !important
+						}
+					}
+				}
+			}
+		}
+	}
+}

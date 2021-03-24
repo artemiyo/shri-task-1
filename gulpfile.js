@@ -70,7 +70,7 @@ function css() {
 }
 
 function images() {
-    return src(['./src/assets/images/*/*.jpg', './src/assets/images/*.svg'])
+    return src(['./src/assets/images/*/*.jpg', './src/assets/images/*.svg', './src/assets/images/*/*.png'])
         .pipe(dest('./build/assets/images'))
 };
 

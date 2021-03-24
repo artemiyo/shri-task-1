@@ -237,6 +237,38 @@ function showDiagram({ title, subtitle, totalText, differenceText, categories })
   `
 }
 
+function showActivity({ title, subtitle, data }) {
+
+  const getValueByHour = (hour) => {
+    if (hour === 1 || hour === 2) return "mid"
+    if (hour === 3 || hour === 4) return "max"
+    if (hour === 4 || hour === 5) return "extra"
+    return "min"
+  }
+
+  return `<section class="activity">
+  <div class="container activity__container">
+    <div class="heading heading__container">
+      <h1 class="heading heading--primary">${title}</h1>
+      <h2 class="heading heading--secondary">${subtitle}</h2>
+    </div>
+    <div class="activity__visual">
+      ${Object.keys(data).slice(0, 1).map(day => (
+    `<div class="activity__visual__day">
+            <div class="activity__visual__hour">
+              ${data[day].map((hour, index) => (
+      `<img 
+            class="activity__visual__hour__value activity__visual__hour__value__${index + 1} activity__visual__hour__value__${index + 1}--${getValueByHour(hour)}"
+            src="./assets/images/2x/${getValueByHour(hour)}-dark.png" alt="${day}_${hour}"/>`
+    )).join("")}
+        </div>
+      </div>`
+  )).join("")}
+    </div>
+  </div>
+</section>`
+}
+
 
 window.renderTemplate = function (alias, data) {
 
@@ -244,8 +276,9 @@ window.renderTemplate = function (alias, data) {
     case "leaders": return showLeaders(data);
     case 'vote': return showVote(data);
     case "chart": return showChart(data);
-    case "diagram": return showDiagram(data)
+    case "diagram": return showDiagram(data);
+    case "activity": return showActivity(data)
   }
 }
 
-document.body.innerHTML = window.renderTemplate("diagram", data[8].data)
+document.body.innerHTML = window.renderTemplate("activity", data[9].data)
