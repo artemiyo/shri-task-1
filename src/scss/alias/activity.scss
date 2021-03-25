@@ -18,43 +18,48 @@
 		&__hour {
 			position: relative;
 			display: flex;
-			flex-direction: column;
 			height: 100%;
 
-			&__value {
-				width: 43px;
-				height: 43px;
+			&__odd,
+			&__even {
+				display: flex;
+				flex-direction: column;
+			}
 
-				@for $var from 1 through 24 {
-					&__#{$var} {
-						&:nth-child(#{$var}):nth-child(even) {
-							position: absolute;
-							left: 20px;
-							top: 18px * ($var - 1);
-						}
+			&__odd {
+				position: relative;
 
-						&:nth-child(#{$var}):nth-child(odd) {
+				img {
+					@for $var from 1 through 12 {
+						&:nth-child(#{$var}) {
 							position: relative;
-							bottom: 4.5px * ($var);
-						}
-
-						&--mid {
-							height: 54px;
-
-							&:nth-child(#{$var}):nth-child(even) {
-								top: 18px * ($var - 1);
-							}
-						}
-
-						&--max {
-							height: 74px;
-						}
-
-						&--extra {
-							height: 95px;
+							left: 20px;
+							top: -13px * $var;
 						}
 					}
 				}
+			}
+
+			&__even {
+				position: relative;
+				top: 15px;
+				left: -21px;
+
+				img {
+					@for $var from 1 through 12 {
+						&:nth-child(#{$var}) {
+							position: relative;
+							left: 20px;
+							top: -13px * $var;
+						}
+					}
+				}
+			}
+
+			&__value {
+				width: 43px;
+				height: 100%;
+				position: relative;
 			}
 		}
 	}

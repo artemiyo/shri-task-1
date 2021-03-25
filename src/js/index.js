@@ -253,7 +253,7 @@ function showActivity({ title, subtitle, data }) {
       <h2 class="heading heading--secondary">${subtitle}</h2>
     </div>
     <div class="activity__visual">
-      ${Object.keys(data).slice(0, 1).map(day => (
+      ${Object.keys(data).slice(0, 7).map(day => (
     `<div class="activity__visual__day">
           <div class="activity__visual__hour">
             ${data[day].map((hour, index) => (
@@ -283,4 +283,4 @@ window.renderTemplate = function (alias, data) {
   }
 }
 
-document.body.innerHTML = window.renderTemplate("activity", data[9].data)
+// document.body.innerHTML = window.renderTemplate("activity", data[9].data)
