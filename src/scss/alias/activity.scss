@@ -1,14 +1,13 @@
 .activity {
 	height: 100%;
 
-	&__container {}
-
 	&__visual {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		margin-top: 50px;
 		height: 328px;
+		width: 95%;
 
 		&__day {
 			position: relative;
@@ -18,48 +17,45 @@
 		&__hour {
 			position: relative;
 			display: flex;
+			flex-direction: column;
 			height: 100%;
-
-			&__odd,
-			&__even {
-				display: flex;
-				flex-direction: column;
-			}
-
-			&__odd {
-				position: relative;
-
-				img {
-					@for $var from 1 through 12 {
-						&:nth-child(#{$var}) {
-							position: relative;
-							left: 20px;
-							top: -13px * $var;
-						}
-					}
-				}
-			}
-
-			&__even {
-				position: relative;
-				top: 15px;
-				left: -21px;
-
-				img {
-					@for $var from 1 through 12 {
-						&:nth-child(#{$var}) {
-							position: relative;
-							left: 20px;
-							top: -13px * $var;
-						}
-					}
-				}
-			}
 
 			&__value {
 				width: 43px;
 				height: 100%;
-				position: relative;
+
+				@for $var from 1 through 24 {
+					&__#{$var} {
+
+						&--mid {
+							height: 54px;
+							margin-top: -11px;
+						}
+
+						&--max {
+							height: 74px;
+							margin-top: -33px;
+							margin-bottom: 0px;
+						}
+
+						&--extra {
+							height: 94px;
+							margin-top: -50px;
+							margin-bottom: px;
+						}
+
+						&:nth-child(#{$var}):nth-child(even) {
+							position: relative;
+							left: 22px;
+							top: -25px * $var;
+						}
+
+						&:nth-child(#{$var}):nth-child(odd) {
+							position: relative;
+							top: -25px * $var;
+						}
+					}
+				}
 			}
 		}
 	}

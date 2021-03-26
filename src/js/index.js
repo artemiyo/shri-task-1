@@ -283,4 +283,4 @@ window.renderTemplate = function (alias, data) {
   }
 }
 
-// document.body.innerHTML = window.renderTemplate("activity", data[9].data)
+document.body.innerHTML = window.renderTemplate("activity", data[9].data)
