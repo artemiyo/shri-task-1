@@ -32,11 +32,11 @@
 					&__#{$var} {
 						&:nth-child(#{$var}):nth-child(even) {
 							position: relative;
-							left: 25px;
-							top: -25.3px * $var;
+							left: 23.3px;
+							top: -25.1px * $var;
 
 							@include respond(phone-min) {
-								left: 17px;
+								left: 16.5px;
 								top: -20px * $var;
 							}
 						}
