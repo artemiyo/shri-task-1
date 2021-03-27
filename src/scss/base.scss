@@ -7,7 +7,7 @@
   --color-light-grey: #bfbfbf;
   --color-white: #fcfbf7;
   --body-background: radial-gradient(70.24% 70.24% at 49.87% 29.76%,
-      rgba(19, 14, 1, 1) 0%,
+      rgba(19, 14, 1, 0.9) 0%,
       #000000 100%);
 
   --headline-color: var(--color-white);
@@ -70,8 +70,6 @@
   --diagram-center-background: radial-gradient(70.24% 70.24% at 49.87% 29.76%,
       rgba(18, 12, 1, 0.9) 0%,
       #000000 100%);
-
-
 }
 
 .theme_dark {
@@ -81,7 +79,7 @@
   --color-light-grey: #bfbfbf;
   --color-white: #fcfbf7;
   --body-background: radial-gradient(70.24% 70.24% at 49.87% 29.76%,
-      rgba(19, 14, 1, 1) 0%,
+      rgba(19, 14, 1, 0.9) 0%,
       #000000 100%);
 
   --headline-color: var(--color-white);

@@ -4,7 +4,8 @@
   "description": "Первое задание ШРИ 2021",
   "main": "index.js",
   "scripts": {
-    "start": "gulp dev"
+    "start": "gulp dev",
+    "serve": "nodemon server.js"
   },
   "repository": {
     "type": "git",

@@ -24,35 +24,57 @@
 				width: 43px;
 				height: 100%;
 
+				@include respond(phone-min) {
+					width: 34px;
+				}
+
 				@for $var from 1 through 24 {
 					&__#{$var} {
+						&:nth-child(#{$var}):nth-child(even) {
+							position: relative;
+							left: 25px;
+							top: -25.3px * $var;
+
+							@include respond(phone-min) {
+								left: 17px;
+								top: -20px * $var;
+							}
+						}
+
+						&:nth-child(#{$var}):nth-child(odd) {
+							position: relative;
+							top: -25.2px * $var;
+
+							@include respond(phone-min) {
+								top: -20px * $var;
+							}
+						}
 
 						&--mid {
 							height: 54px;
 							margin-top: -11px;
+
+							@include respond(phone-min) {
+								margin-top: -6px;
+							}
 						}
 
 						&--max {
 							height: 74px;
 							margin-top: -33px;
-							margin-bottom: 0px;
+
+							@include respond(phone-min) {
+								margin-top: -23px;
+							}
 						}
 
 						&--extra {
 							height: 94px;
 							margin-top: -50px;
-							margin-bottom: px;
-						}
 
-						&:nth-child(#{$var}):nth-child(even) {
-							position: relative;
-							left: 22px;
-							top: -25px * $var;
-						}
-
-						&:nth-child(#{$var}):nth-child(odd) {
-							position: relative;
-							top: -25px * $var;
+							@include respond(phone-min) {
+								margin-top: -40px;
+							}
 						}
 					}
 				}

@@ -260,7 +260,7 @@ function showActivity({ title, subtitle, data }) {
       `
           <img 
               class="activity__visual__hour__value activity__visual__hour__value__${index + 1} activity__visual__hour__value__${index + 1}--${getValueByHour(hour)}"
-              src="./assets/images/2x/${getValueByHour(hour)}-dark.png" alt="${day}_${hour}"
+              src="./assets/images/${getValueByHour(hour)}-dark.svg" alt="${day}_${hour}"
               />`)
     ).join("")}
         </div>
