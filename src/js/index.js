@@ -242,7 +242,7 @@ function showActivity({ title, subtitle, data }) {
   const getValueByHour = (hour) => {
     if (hour === 1 || hour === 2) return "mid"
     if (hour === 3 || hour === 4) return "max"
-    if (hour === 4 || hour === 5) return "extra"
+    if (hour === 4 || hour === 5 || hour >= 6) return "extra"
     return "min"
   }
 
@@ -252,28 +252,68 @@ function showActivity({ title, subtitle, data }) {
       <h1 class="heading heading--primary">${title}</h1>
       <h2 class="heading heading--secondary">${subtitle}</h2>
     </div>
+    <div class="activity__wrapper">
     <div class="activity__visual">
-      ${Object.keys(data).slice(0, 7).map(day => (
+    ${Object.keys(data).slice(0, 7).map(day => (
     `<div class="activity__visual__day">
-          <div class="activity__visual__hour">
-            ${data[day].map((hour, index) => (
-      `
-          <img 
-              class="activity__visual__hour__value activity__visual__hour__value__${index + 1} activity__visual__hour__value__${index + 1}--${getValueByHour(hour)}"
-              src="./assets/images/${getValueByHour(hour)}-dark.svg" alt="${day}_${hour}"
-              />`)
+      <div class="activity__visual__hour">
+        ${data[day].map((hour, index) => (
+      `<img srcset="
+              assets/images/1x/${getValueByHour(hour)}-dark.png 34w,
+              assets/images/2x/${getValueByHour(hour)}-dark.png 68w,
+              assets/images/3x/${getValueByHour(hour)}-dark.png 102w,
+              assets/images/4x/${getValueByHour(hour)}-dark.png 136w,
+            "
+            sizes="
+              (max-width: 567px) 34px,
+              (max-width: 768px) 68px,
+              (max-width: 1365px) 102px,
+              136px
+            "
+            class="
+              activity__visual__hour__value activity__visual__hour__value__${index + 1} 
+              activity__visual__hour__value__${index + 1}--${getValueByHour(hour)}
+              "
+            src="./assets/images/1x/${getValueByHour(hour)}-dark.png" alt="${day}_${hour}"
+            />`)
     ).join("")}
-        </div>
-      </div>`
+      </div>
+    </div>`
   )).join("")}
+  </div>
+  <div class="activity__legend">
+    <div class="activity__legend__item">
+      <div class="activity__legend__block activity__legend__block--center">
+          <div class="activity__legend__block__hour"></div>
+      </div>
+      <span class="activity__legend__value activity__legend__value--one">1 час</span>
+      <span class="activity__legend__value activity__legend__value--two">2 часа</span>
     </div>
+    <div class="activity__legend__item">
+      <div class="activity__legend__block activity__legend__block--1"></div>
+      <span class="activity__legend__value">0</span>
+    </div>
+    <div class="activity__legend__item">
+      <div class="activity__legend__block activity__legend__block--2"></div>
+      <span class="activity__legend__value">1 — 2</span>
+    </div>
+    <div class="activity__legend__item">
+      <div class="activity__legend__block activity__legend__block--3"></div>
+      <span class="activity__legend__value">3 — 4</span>
+    </div>
+    <div class="activity__legend__item">
+      <div class="activity__legend__block activity__legend__block--4"></div>
+      <span class="activity__legend__value">5 — 6</span>
+    </div>
+  </div>
+    </div>
+
   </div>
 </section>`
 }
 
 
 window.renderTemplate = function (alias, data) {
-
   switch (alias) {
     case "leaders": return showLeaders(data);
     case 'vote': return showVote(data);
