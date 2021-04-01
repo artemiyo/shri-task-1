@@ -1,219 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="stories.css" />
-    <title>Task 1</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="stories.css" />
+  <title>Task 1</title>
+</head>
 
-  <body class="theme_dark">
-    <section class="vote">
-      <div class="container vote__container">
-        <div class="heading heading__container">
-          <h1 class="heading heading--primary">Самый внимательный разработчик</h1>
-          <h2 class="heading heading--secondary">Спринт №213</h2>
-        </div>
-        <ul class="vote__users">
-          <li class="vote__users__item vote__users__item--1">
-            <button class="vote__users__button">
-              <div class="user">
-                <div class="user__info">
-                  <div class="user__photo">
-                    <img srcset="
-                        assets/images/1x/1.jpg 64w,
-                        assets/images/2x/1.jpg 128w,
-                        assets/images/3x/1.jpg 192w,
-                        assets/images/4x/1.jpg 256w,
-                      " sizes="
-                        (max-width: 567px) 64px,
-                        (max-width: 768px) 128px,
-                        (max-width: 1365px) 192px,
-                        256px" src="assets/images/1x/1.jpg" alt="1.jpg" />
-                  </div>
-                  <div class="user__data">
-                    <span class="user__name">Евгений Дементьев</span>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </li>
-          <li class="vote__users__item vote__users__item--2">
-            <button class="vote__users__button">
-              <div class="user">
-                <div class="user__info">
-                  <div class="user__photo">
-                    <img srcset="
-                        assets/images/1x/12.jpg 64w,
-                        assets/images/2x/12.jpg 128w,
-                        assets/images/3x/12.jpg 192w,
-                        assets/images/4x/12.jpg 256w,
-                      " sizes="
-                        (max-width: 567px) 64px,
-                        (max-width: 768px) 128px,
-                        (max-width: 1365px) 192px,
-                        256px" src="assets/images/1x/12.jpg" alt="12.jpg" />
-                  </div>
-                  <div class="user__data">
-                    <span class="user__name">Алексей Ярошевич</span>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </li>
-          <li class="vote__users__item vote__users__item--3">
-            <button class="vote__users__button">
-              <div class="user">
-                <div class="user__info">
-                  <div class="user__photo">
-                    <img srcset="
-                        assets/images/1x/5.jpg 64w,
-                        assets/images/2x/5.jpg 128w,
-                        assets/images/3x/5.jpg 192w,
-                        assets/images/4x/5.jpg 256w,
-                      " sizes="
-                        (max-width: 567px) 64px,
-                        (max-width: 768px) 128px,
-                        (max-width: 1365px) 192px,
-                        256px" src="assets/images/1x/5.jpg" alt="5.jpg" />
-                  </div>
-                  <div class="user__data">
-                    <span class="user__name">Александр Николаевич</span>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </li>
-          <li class="vote__users__item vote__users__item--4">
-            <div class="vote__users__wrapper">
-              <img src="assets/images/button-dark.svg" alt="">
+<body class="theme_dark">
+  <section class="vote">
+    <div class="container vote__container">
+      <div class="heading heading__container">
+        <h1 class="heading heading--primary">Самый внимательный разработчик</h1>
+        <h2 class="heading heading--secondary">Спринт №213</h2>
+      </div>
+      <ul class="vote__users">
+        <li class="vote__users__item vote__users__item--1">
+          <button class="vote__users__button">
+            <div class="vote__user">
+              <img srcset="
+                assets/images/1x/1.jpg 64w,
+                assets/images/2x/1.jpg 128w,
+                assets/images/3x/1.jpg 192w,
+                assets/images/4x/1.jpg 256w,
+              " sizes="
+                (max-width: 567px) 64px,
+                (max-width: 768px) 128px,
+                (max-width: 1365px) 192px,
+                256px" src="assets/images/1x/1.jpg" alt="1.jpg" />
+              <span class="vote__user__name">
+                Евгений Дементьев
+              </span>
             </div>
-          </li>
-          <li class="vote__users__item vote__users__item--5">
-            <button class="vote__users__button">
-              <div class="user">
-                <div class="user__info">
-                  <div class="user__photo">
-                    <img srcset="
-                        assets/images/1x/4.jpg 64w,
-                        assets/images/2x/4.jpg 128w,
-                        assets/images/3x/4.jpg 192w,
-                        assets/images/4x/4.jpg 256w,
-                      " sizes="
-                        (max-width: 567px) 64px,
-                        (max-width: 768px) 128px,
-                        (max-width: 1365px) 192px,
-                        256px" src="assets/images/1x/4.jpg" alt="1.jpg" />
-                  </div>
-                  <div class="user__data">
-                    <span class="user__name">Вадим Пацев</span>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </li>
-          <li class="vote__users__item vote__users__item--6">
-            <button class="vote__users__button">
-              <div class="user">
-                <div class="user__info">
-                  <div class="user__photo">
-                    <img srcset="
-                        assets/images/1x/11.jpg 64w,
-                        assets/images/2x/11.jpg 128w,
-                        assets/images/3x/11.jpg 192w,
-                        assets/images/4x/11.jpg 256w,
-                      " sizes="
-                        (max-width: 567px) 64px,
-                        (max-width: 768px) 128px,
-                        (max-width: 1365px) 192px,
-                        256px" src="assets/images/1x/11.jpg" alt="1.jpg" />
-                  </div>
-                  <div class="user__data">
-                    <span class="user__name">Юрий Фролов</span>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </li>
-          <li class="vote__users__item vote__users__item--7">
-            <div class="vote__users__wrapper">
-              <img src="assets/images/button-dark.svg" alt="">
+          </button>
+        </li>
+        <li class="vote__users__item vote__users__item--2">
+          <button class="vote__users__button">
+            <div class="vote__user">
+              <img srcset="
+                assets/images/1x/12.jpg 64w,
+                assets/images/2x/12.jpg 128w,
+                assets/images/3x/12.jpg 192w,
+                assets/images/4x/12.jpg 256w,
+              " sizes="
+                (max-width: 567px) 64px,
+                (max-width: 768px) 128px,
+                (max-width: 1365px) 192px,
+                256px" src="assets/images/1x/12.jpg" alt="12.jpg" />
+              <span class="vote__user__name">
+                Алексей Ярошевич
+              </span>
             </div>
-          </li>
-          <li class="vote__users__item vote__users__item--8">
-            <button class="vote__users__button">
-              <div class="user">
-                <div class="user__info">
-                  <div class="user__photo">
-                    <img srcset="
-                        assets/images/1x/10.jpg 64w,
-                        assets/images/2x/10.jpg 128w,
-                        assets/images/3x/10.jpg 192w,
-                        assets/images/4x/10.jpg 256w,
-                      " sizes="
-                        (max-width: 567px) 64px,
-                        (max-width: 768px) 128px,
-                        (max-width: 1365px) 192px,
-                        256px" src="assets/images/1x/10.jpg" alt="10.jpg" />
-                  </div>
-                  <div class="user__data">
-                    <span class="user__name">Яна Берникова</span>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </li>
-          <li class="vote__users__item vote__users__item--9">
-            <button class="vote__users__button">
-              <div class="user">
-                <div class="user__info">
-                  <div class="user__photo">
-                    <img srcset="
-                        assets/images/1x/2.jpg 64w,
-                        assets/images/2x/2.jpg 128w,
-                        assets/images/3x/2.jpg 192w,
-                        assets/images/4x/2.jpg 256w,
-                      " sizes="
-                        (max-width: 567px) 64px,
-                        (max-width: 768px) 128px,
-                        (max-width: 1365px) 192px,
-                        256px" src="assets/images/1x/2.jpg" alt="1.jpg" />
-                  </div>
-                  <div class="user__data">
-                    <span class="user__name">Александр Шлейко</span>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </li>
-          <li class="vote__users__item vote__users__item--10">
-            <button class="vote__users__button">
-              <div class="user">
-                <div class="user__info">
-                  <div class="user__photo">
-                    <img srcset="
-                        assets/images/1x/6.jpg 64w,
-                        assets/images/2x/6.jpg 128w,
-                        assets/images/3x/6.jpg 192w,
-                        assets/images/4x/6.jpg 256w,
-                      " sizes="
-                        (max-width: 567px) 64px,
-                        (max-width: 768px) 128px,
-                        (max-width: 1365px) 192px,
-                        256px" src="assets/images/1x/6.jpg" alt="6.jpg" />
-                  </div>
-                  <div class="user__data">
-                    <span class="user__name">Андрей Мокроусов</span>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </li>
-        </ul>
-    </section>
-    <script src="stories.js"></script>
-  </body>
+          </button>
+        </li>
+        <li class="vote__users__item vote__users__item--3">
+          <button class="vote__users__button">
+            <div class="vote__user">
+              <img srcset="
+                assets/images/1x/5.jpg 64w,
+                assets/images/2x/5.jpg 128w,
+                assets/images/3x/5.jpg 192w,
+                assets/images/4x/5.jpg 256w,
+              " sizes="
+                (max-width: 567px) 64px,
+                (max-width: 768px) 128px,
+                (max-width: 1365px) 192px,
+                256px" src="assets/images/1x/5.jpg" alt="5.jpg" />
+              <span class="vote__user__name">
+                Александр Николаевич
+              </span>
+            </div>
+          </button>
+        </li>
+        <li class="vote__users__item vote__users__item--4">
+          <div class="vote__users__wrapper">
+            <img src="assets/images/button-dark.svg" alt="">
+          </div>
+        </li>
+        <li class="vote__users__item vote__users__item--5">
+          <button class="vote__users__button">
+            <div class="vote__user">
+              <img srcset="
+                assets/images/1x/4.jpg 64w,
+                assets/images/2x/4.jpg 128w,
+                assets/images/3x/4.jpg 192w,
+                assets/images/4x/4.jpg 256w,
+              " sizes="
+                (max-width: 567px) 64px,
+                (max-width: 768px) 128px,
+                (max-width: 1365px) 192px,
+                256px" src="assets/images/1x/4.jpg" alt="4.jpg" />
+              <span class="vote__user__name">
+                Вадим Пацев
+              </span>
+            </div>
+          </button>
+        </li>
+        <li class="vote__users__item vote__users__item--6">
+          <button class="vote__users__button">
+            <div class="vote__user">
+              <img srcset="
+                assets/images/1x/11.jpg 64w,
+                assets/images/2x/11.jpg 128w,
+                assets/images/3x/11.jpg 192w,
+                assets/images/4x/11.jpg 256w,
+              " sizes="
+                (max-width: 567px) 64px,
+                (max-width: 768px) 128px,
+                (max-width: 1365px) 192px,
+                256px" src="assets/images/1x/11.jpg" alt="11.jpg" />
+              <span class="vote__user__name">
+                Юрий Фролов
+              </span>
+            </div>
+          </button>
+        </li>
+        <li class="vote__users__item vote__users__item--7">
+          <div class="vote__users__wrapper">
+            <img src="assets/images/button-dark.svg" alt="">
+          </div>
+        </li>
+        <li class="vote__users__item vote__users__item--8">
+          <button class="vote__users__button">
+            <div class="vote__user">
+              <img srcset="
+                assets/images/1x/10.jpg 64w,
+                assets/images/2x/10.jpg 128w,
+                assets/images/3x/10.jpg 192w,
+                assets/images/4x/10.jpg 256w,
+              " sizes="
+                (max-width: 567px) 64px,
+                (max-width: 768px) 128px,
+                (max-width: 1365px) 192px,
+                256px" src="assets/images/1x/10.jpg" alt="10.jpg" />
+              <span class="vote__user__name">
+                Яна Берникова
+              </span>
+            </div>
+          </button>
+        </li>
+        <li class="vote__users__item vote__users__item--9">
+          <button class="vote__users__button">
+            <div class="vote__user">
+              <img srcset="
+                assets/images/1x/2.jpg 64w,
+                assets/images/2x/2.jpg 128w,
+                assets/images/3x/2.jpg 192w,
+                assets/images/4x/2.jpg 256w,
+              " sizes="
+                (max-width: 567px) 64px,
+                (max-width: 768px) 128px,
+                (max-width: 1365px) 192px,
+                256px" src="assets/images/1x/2.jpg" alt="2.jpg" />
+              <span class="vote__user__name">
+                Александр Шлейко
+              </span>
+            </div>
+          </button>
+        </li>
+        <li class="vote__users__item vote__users__item--10">
+          <button class="vote__users__button">
+            <div class="vote__user">
+              <img srcset="
+                assets/images/1x/6.jpg 64w,
+                assets/images/2x/6.jpg 128w,
+                assets/images/3x/6.jpg 192w,
+                assets/images/4x/6.jpg 256w,
+              " sizes="
+                (max-width: 567px) 64px,
+                (max-width: 768px) 128px,
+                (max-width: 1365px) 192px,
+                256px" src="assets/images/1x/6.jpg" alt="6.jpg" />
+              <span class="vote__user__name">
+                Андрей Мокроусов
+              </span>
+            </div>
+          </button>
+        </li>
+      </ul>
+  </section>
+  <script src="stories.js"></script>
+</body>
 
 </html>
