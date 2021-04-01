@@ -3,7 +3,8 @@
   height: 100%;
 
   &__users {
-    height: 70%;
+    overflow: hidden;
+    height: 72%;
     display: grid;
     margin-top: 20px;
     grid-template-columns: repeat(3, 1fr);
@@ -15,13 +16,18 @@
       "...... area-7 ......";
 
     @include respond(phone-min) {
+      overflow: hidden;
       grid-auto-rows: minmax(110px, auto);
-      margin-top: 40px;
     }
 
     @include respond(landscape-tablets) {
+      height: 80%;
       grid-template-columns: repeat(5, 1fr);
       grid-auto-rows: minmax(142px, auto);
+      grid-template-areas:
+        "area-1 area-5 area-4 area-8 area-2"
+        "area-1 area-6 area-7 area-9 area-2"
+      ;
       margin-top: 0;
     }
 
@@ -43,170 +49,68 @@
       @for $var from 0 through 10 {
         &--#{$var} {
           grid-area: area-#{$var};
+
+          @if $var==1 or $var==2 {
+            @include respond(landscape-tablets) {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+
+          @if $var==3 or $var==10 {
+            @include respond(landscape-tablets) {
+              display: none;
+            }
+          }
+
           @if $var==4 {
             img {
               transform: rotate(180deg);
             }
+
+            @include respond(landscape-tablets) {
+              bottom: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
           }
+
           @if $var==5 {
-            margin-top: -60px;
+            position: relative;
+            bottom: 78px;
+
+            @include respond(phone-min) {
+              bottom: 60px;
+            }
+
+            @include respond(landscape-tablets) {
+              bottom: 0;
+            }
           }
+
           @if $var==6 {
-            margin-top: -60px;
+            position: relative;
+            top: -78px;
+
+            @include respond(phone-min) {
+              top: -60px;
+            }
+
+            @include respond(landscape-tablets) {
+              top: unset;
+            }
           }
+
           @if $var==7 {
-            margin-top: -50px;
+            @include respond(landscape-tablets) {
+              bottom: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
           }
-        }
-      }
-
-      &--1 {
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 1;
-        grid-row-end: 1;
-
-        @include respond(landscape-tablets) {
-          grid-row-end: 3;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      }
-
-      &--2 {
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 2;
-        grid-row-end: 2;
-
-        @include respond(landscape-tablets) {
-          grid-column-start: 5;
-          grid-column-end: 5;
-          grid-row-start: 1;
-          grid-row-end: 3;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      }
-
-      &--3 {
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 3;
-        grid-row-end: 3;
-
-        @include respond(landscape-tablets) {
-          display: none;
-        }
-      }
-
-      &--4 {
-        grid-column-start: 2;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 1;
-
-        img {
-          transform: rotate(180deg);
-        }
-
-        @include respond(landscape-tablets) {
-          grid-column-start: 3;
-          grid-column-end: 3;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      }
-
-      &--5 {
-        grid-column-start: 2;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 1;
-        position: relative;
-        top: 78px;
-
-        @include respond(phone-min) {
-          top: 60px;
-        }
-
-        @include respond(landscape-tablets) {
-          top: 0;
-        }
-      }
-
-      &--6 {
-        grid-column-start: 2;
-        grid-column-end: 2;
-        grid-row-start: 2;
-        grid-row-end: 2;
-        position: relative;
-        bottom: 78px;
-
-        @include respond(phone-min) {
-          bottom: 60px;
-        }
-
-        @include respond(landscape-tablets) {
-          bottom: unset;
-        }
-      }
-
-      &--7 {
-        grid-column-start: 2;
-        grid-column-end: 2;
-        grid-row-start: 3;
-        grid-row-end: 3;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-
-        @include respond(landscape-tablets) {
-          grid-column-start: 3;
-          grid-column-end: 3;
-          grid-row-start: 2;
-          grid-row-end: 2;
-          align-items: center;
-        }
-      }
-
-      &--8 {
-        grid-column-start: 3;
-        grid-column-end: 3;
-        grid-row-start: 1;
-        grid-row-end: 1;
-
-        @include respond(landscape-tablets) {
-          grid-column-start: 4;
-          grid-column-end: 4;
-        }
-      }
-
-      &--9 {
-        grid-column-start: 3;
-        grid-column-end: 3;
-        grid-row-start: 2;
-        grid-row-end: 2;
-
-        @include respond(landscape-tablets) {
-          grid-column-start: 4;
-          grid-column-end: 4;
-          grid-row-start: 2;
-          grid-row-end: 2;
-        }
-      }
-
-      &--10 {
-        grid-column-start: 3;
-        grid-column-end: 3;
-        grid-row-start: 3;
-        grid-row-end: 3;
-
-        @include respond(landscape-tablets) {
-          display: none;
         }
       }
     }
@@ -246,11 +150,11 @@
 
     &__name {
       display: block;
-      width: 96px;
-      margin: 0 auto;
+      font-family: "Roboto 400";
       font-size: 16px;
+      width: 96px;
+      margin: 6px auto 0 auto;
       color: var(--color-white);
-      margin-top: 6px;
 
       @include respond(phone-min) {
         width: 70px;
