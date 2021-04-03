@@ -11,7 +11,8 @@
     color: var(--headline-color);
     font-size: var(--headline-font-size);
     width: 100%;
-    line-height: 1;
+    line-height: 32px;
+    letter-spacing: 0.43px;
 
     @include respond(tablets) {
       font-size: calc(var(--headline-font-size) + 10px);
@@ -28,7 +29,8 @@
     font-size: var(--caption-font-size);
     margin-top: 8px;
     width: 100%;
-    line-height: 1;
+    line-height: 18px;
+    letter-spacing: 0.43px;
 
     @include respond(tablets) {
       font-size: calc(var(--caption-font-size) + 5px);
