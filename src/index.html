@@ -667,7 +667,7 @@
       ]
 
       const urlParams = new URLSearchParams(window.location.search);
-      const slideParam = +urlParams.get('slides') ?? 0;
+      const slideParam = +urlParams.get('slide') ?? 0;
       const themeParams = urlParams.get('theme');
 
       if (themeParams) {
@@ -676,7 +676,7 @@
         document.body.classList.value = `theme_dark`
       }
 
-      document.body.innerHTML = window.renderTemplate(data[slideParam].alias, data[slideParam].data);
+      document.body.innerHTML = window.renderTemplate(data[slideParam - 1].alias, data[slideParam - 1].data);
     </script>
   </body>
 
