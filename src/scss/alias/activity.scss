@@ -26,7 +26,7 @@
 		justify-content: center;
 		align-items: center;
 		width: 95%;
-		margin: 50px auto 0 auto;
+		margin: 50px 20px 0 auto;
 
 		@include respond(landscape-tablets) {
 			flex-direction: column;
@@ -144,8 +144,8 @@
 							top: -25.1px * $var;
 
 							@include respond(phone-min) {
-								left: 16.5px;
-								top: -20px * $var;
+								left: 18px;
+								top: -20.7px * $var;
 							}
 
 							@include respond(landscape-tablets) {
@@ -181,7 +181,7 @@
 							top: -25.2px * $var;
 
 							@include respond(phone-min) {
-								top: -20px * $var;
+								top: -20.7px * $var;
 							}
 
 							@include respond(landscape-tablets) {
@@ -213,11 +213,11 @@
 
 						&--mid {
 							height: 54px;
-							margin-top: -11px;
+							margin-top: -10px;
 
 							@include respond(phone-min) {
 								height: 43px;
-								margin-top: -6px;
+								margin-top: -5px;
 							}
 
 							@include respond(tablets) {
@@ -233,11 +233,11 @@
 
 						&--max {
 							height: 74px;
-							margin-top: -35px;
+							margin-top: -30px;
 
 							@include respond(phone-min) {
 								height: 64px;
-								margin-top: -23px;
+								margin-top: -21px;
 							}
 
 							@include respond(tablets) {
@@ -257,7 +257,7 @@
 
 							@include respond(phone-min) {
 								height: 84px;
-								margin-top: -51px;
+								margin-top: -38px;
 							}
 
 							@include respond(tablets) {
@@ -307,12 +307,12 @@
 
 			@include respond(tablets) {
 				width: 89.2px;
-				height: 18px;
+				height: 3.5vw;
 			}
 
 			@include respond(laptop) {
 				width: 10vw;
-				height: 1.5vw;
+				height: 2vw;
 			}
 
 			&--center {
@@ -328,16 +328,6 @@
 				background: var(--activity-legend-background-1);
 				box-shadow: var(--activity-legend-shadow-1);
 
-				@include respond(tablets) {
-					width: 89.2px;
-					height: 8px;
-				}
-
-				@include respond(laptop) {
-					width: 10vw;
-					height: 0.7vw;
-				}
-
 				&::before {
 					display: block;
 					content: "";
@@ -346,7 +336,7 @@
 					left: -2px;
 					transform: translate(-50%, -50%);
 					width: 6px;
-					height: 1.5vw;
+					height: 3.5vw;
 					border-radius: 2px;
 					background: var(--activity-legend-background-1);
 					box-shadow: var(--activity-legend-shadow-1);
@@ -360,11 +350,29 @@
 					right: -8px;
 					transform: translate(-50%, -50%);
 					width: 6px;
-					height: 1.5vw;
+					height: 3.5vw;
 					border-radius: 2px;
 					background: var(--activity-legend-background-1);
 					box-shadow: var(--activity-legend-shadow-1);
 				}
+
+				@include respond(laptop) {
+					&::before, &::after {
+						height: 2vw;
+					}
+				}
+
+				@include respond(tablets) {
+					width: 89.2px;
+					height: 8px;
+				}
+
+				@include respond(laptop) {
+					width: 10vw;
+					height: 0.7vw;
+				}
+
+
 			}
 
 			@for $var from 1 through 4 {
@@ -387,6 +395,14 @@
 			@include respond(landscape-tablets) {
 				font-size: 1.6vw;
 				text-align: center;
+			}
+
+			@include respond(tablets) {
+				font-size: 3vw;
+			}
+
+			@include respond(laptop) {
+				font-size: 2vw;
 			}
 
 			&--one {
