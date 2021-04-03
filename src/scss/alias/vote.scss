@@ -4,22 +4,20 @@
 
 
   &__users {
-    overflow: hidden;
     height: 72%;
     display: grid;
     margin-top: 20px;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(auto, auto);
     grid-template-areas:
-      "area-1 area-4 area-8"
-      "area-2 area-5 area-9"
-      "area-3 area-6 area-10"
-      "...... area-7 ......";
+      "area-1 area-13 area-10"
+      "area-12 area-4 area-2"
+      "area-5 area-11 area-6"
+      "...... area-14 ......";
 
     @include respond(phone-min) {
       height: 70%;
-      overflow: hidden;
-      grid-auto-rows: minmax(110px, auto);
+      grid-auto-rows: minmax(120px, auto);
     }
 
     @include respond(landscape-tablets) {
@@ -27,9 +25,8 @@
       grid-template-columns: repeat(5, 1fr);
       grid-auto-rows: minmax(142px, auto);
       grid-template-areas:
-        "area-1 area-5 area-4 area-8 area-2"
-        "area-1 area-6 area-7 area-9 area-2"
-      ;
+        "area-1 area-4 area-13 area-10 area-12"
+        "area-1 area-11 area-14 area-2 area-12";
       margin-top: 0;
     }
 
@@ -37,10 +34,10 @@
       grid-template-columns: repeat(3, 1fr);
       grid-auto-rows: minmax(30%, auto);
       grid-template-areas:
-        "area-1 area-4 area-8"
-        "area-2 area-5 area-9"
-        "area-3 area-6 area-10"
-        "...... area-7 ......";
+        "area-1 area-13 area-10"
+        "area-12 area-4 area-2"
+        "area-5 area-11 area-6"
+        "...... area-14 ......";
       margin-top: 100px;
     }
 
@@ -49,14 +46,15 @@
       grid-template-columns: repeat(5, 1fr);
       grid-auto-rows: minmax(142px, auto);
       grid-template-areas:
-        "area-1 area-5 area-4 area-8 area-2"
-        "area-1 area-6 area-7 area-9 area-2"
-      ;
+        "area-1 area-4 area-13 area-10 area-12"
+        "area-1 area-11 area-14 area-2 area-12";
       margin-top: 40px;
     }
 
     &__wrapper {
       text-align: center;
+      background-color: transparent;
+      border: none;
 
       svg {
         path {
@@ -87,11 +85,11 @@
       align-items: center;
       justify-content: center;
 
-      @for $var from 0 through 10 {
+      @for $var from 1 through 14 {
         &--#{$var} {
           grid-area: area-#{$var};
 
-          @if $var==1 or $var==2 {
+          @if $var==1 or $var==12 {
             @include respond(landscape-tablets) {
               display: flex;
               align-items: center;
@@ -99,7 +97,11 @@
             }
           }
 
-          @if $var==3 or $var==10 {
+          @if $var==9 or $var==3 or $var==7 or $var==8 {
+            display: none;
+          }
+
+          @if $var==5 or $var==6 {
             @include respond(landscape-tablets) {
               display: none;
             }
@@ -113,16 +115,18 @@
             }
           }
 
-          @if $var==4 {
+          @if $var==13 {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
             svg {
               transform: rotate(180deg);
             }
 
             @include respond(landscape-tablets) {
               bottom: 0;
-              display: flex;
               align-items: center;
-              justify-content: center;
             }
 
             @include respond(tablets) {
@@ -130,15 +134,15 @@
             }
 
             @include respond(laptop) {
-              align-items: center;
-              bottom: -60px;
               position: relative;
+              bottom: -20px;
+              align-items: center;
             }
           }
 
-          @if $var==5 {
+          @if $var==4 {
             position: relative;
-            bottom: 78px;
+            bottom: 70px;
 
             @include respond(phone-min) {
               top: -60px;
@@ -157,9 +161,9 @@
             }
           }
 
-          @if $var==6 {
+          @if $var==11 {
             position: relative;
-            top: -78px;
+            top: -70px;
 
             @include respond(phone-min) {
               top: -60px;
@@ -178,7 +182,7 @@
             }
           }
 
-          @if $var==7 {
+          @if $var==14 {
             bottom: 0;
             display: flex;
             align-items: flex-end;
@@ -206,7 +210,7 @@
 
             @include respond(laptop) {
               position: relative;
-              bottom: 60px;
+              bottom: 20px;
               align-items: center;
               grid-column-start: 3;
               grid-column-end: 3;
@@ -233,13 +237,13 @@
       }
 
       @include respond(tablets) {
-        width: 154px;
-        height: 192px;
+        width: 174px;
+        height: 212px;
       }
 
-      @include respond(tablets) {
-        width: 15vw;
-        height: 19vw;
+      @include respond(laptop) {
+        width: 13vw;
+        height: 17vw;
       }
 
       &:hover {
@@ -253,21 +257,6 @@
         box-shadow: inset 0px 6px 15px 0px #FFA200, inset -1px 1px 1px 0px #FFFFFF;
         position: relative;
 
-        &>.vote__user>img {
-          position: relative;
-          z-index: 10px;
-
-          &::before {
-            position: absolute;
-            display: block;
-            content: "👍";
-            top: 0;
-            left: 0;
-            z-index: 100;
-            font-size: 20px;
-          }
-        }
-
         &:hover {
           background: radial-gradient(circle at 50% 50%, #FFA300 0%, #2D1C00 100%);
           box-shadow: inset 0px 6px 15px 0px #FFA200, inset -1px 1px 1px 0px #FFFFFF;
@@ -279,6 +268,7 @@
 
   &__user {
     img {
+      position: relative;
       width: 64px;
       height: 64px;
       border-radius: 50%;
@@ -295,8 +285,8 @@
       }
 
       @include respond(laptop) {
-        width: 10vw;
-        height: 10vw;
+        width: 8vw;
+        height: 8vw;
       }
     }
 
@@ -318,9 +308,30 @@
         font-size: 20px;
       }
 
-      @include respond(tablets) {
+      @include respond(laptop) {
         width: 9vw;
         font-size: 1.5vw;
+      }
+    }
+
+    &__emoji {
+      position: absolute;
+      top: 17%;
+      left: 50%;
+      font-size: 32px;
+      transform: translate(-50%, -100%);
+
+      @include respond(phone-min) {
+        font-size: 24px;
+      }
+
+      @include respond(tablets) {
+        top: 19%;
+        font-size: 48px;
+      }
+
+      @include respond(laptop) {
+        font-size: 3vw;
       }
     }
   }

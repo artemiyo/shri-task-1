@@ -2,7 +2,6 @@ import data from '../data';
 
 
 function showLeaders({ title, subtitle, users, emoji, selectedUserId }) {
-
   const selectedUserIndex = users.findIndex(user => user.id === selectedUserId)
 
   return `
@@ -45,7 +44,11 @@ function showLeaders({ title, subtitle, users, emoji, selectedUserId }) {
               </div>
               <div class="user__place user__place--${userIndex + 1}">
                 <span class="user__place-number">${userIndex + 1}</span>
-                ${userIndex === 0 && selectedUserIndex && users[selectedUserIndex] ? `<div class="user user--selected">
+                ${userIndex === 0 && selectedUserIndex && users[selectedUserIndex] ? `
+                <div 
+                  data-action="leaders" 
+                  data-params='{ \"alias\": \"leaders\", \"data\": { \"selectedUserId\": \"${selectedUserId}\" }}'
+                  class="user user--selected data-">
                   <div class="user__info">
                     <div class="user__photo">
                       <img
@@ -84,7 +87,7 @@ function showLeaders({ title, subtitle, users, emoji, selectedUserId }) {
 `
 }
 
-function showVote({ title, subtitle, users, selectedUserId }) {
+function showVote({ title, subtitle, users, offset }) {
   return `<section class="vote">
             <div class="container">
               <div class="wrapper">
@@ -92,39 +95,50 @@ function showVote({ title, subtitle, users, selectedUserId }) {
                   <h1 class="heading heading--primary">${title}</h1>
                   <h2 class="heading heading--secondary">${subtitle}</h2>
                 </div>
-                <ul class="users">
-                  ${users.slice(0, 8).map((user, userIndex) => `
-                    <li class="users__item">
-                      <button class="users__button">
-                        <div class="user">
-                          <div class="user__info">
-                            <div class="user__photo">
-                              <img
-                                srcset="
-                                  assets/images/1x/${user.avatar}  64w,
-                                  assets/images/2x/${user.avatar} 128w,
-                                  assets/images/3x/${user.avatar} 192w,
-                                  assets/images/4x/${user.avatar} 256w
-                                "
-                                sizes="
-                                (max-width: 567px) 64px,
-                                (max-width: 768px) 128px,
-                                (max-width: 1365px) 192px,
-                                256px
-                                "
-                                src="assets/images/1x/${user.avatar}"
-                                alt="${user.avatar}"
-                              />
-                            </div>
-                          </div>
-                          <div class="user__data">
-                            <span class="user__name">${user.name}</span>
-                          </div>
+                <ul class="vote__users">
+                  ${users.map(({ id, name, avatar }) => {
+    return `<li class="vote__users__item vote__users__item--${id}">
+                      <button 
+                        data-action="update" 
+                        data-params="data-params='{ \"alias\": \"vote\", \"data\": { \"selectedUserId\": \"${selectedUserId}\" }}" 
+                        class="vote__users__button vote__users__button--${id === selectedUserId ? "selected" : ""}">
+                        <div class="vote__user">
+                          <img srcset="
+                          assets/images/1x/${avatar} 64w,
+                          assets/images/2x/${avatar} 128w,
+                          assets/images/3x/${avatar} 192w,
+                          assets/images/4x/${avatar} 256w,
+                        " sizes="
+                          (max-width: 567px) 64px,
+                          (max-width: 768px) 128px,
+                          (max-width: 1365px) 192px,
+                          256px" src="assets/images/1x/${avatar}" alt="${avatar}" />
+                          <span class="vote__user__name">
+                           ${name}
+                          </span>
+                          ${id === selectedUserId ? `<span class="vote__user__emoji">👍</span>` : ""}
                         </div>
                       </button>
-                    </li>`).join("")}
+                    </li>`}).join("")}
+                    <li class="vote__users__item vote__users__item--13">
+                      <button data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${offset}\" }}'  class="vote__users__wrapper">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M32 62C48.5685 62 62 48.5685 62 32C62 15.4315 48.5685 2 32 2C15.4315 2 2 15.4315 2 32C2 48.5685 15.4315 62 32 62ZM32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64ZM59 32C59 46.9117 46.9117 59 32 59C17.0883 59 5 46.9117 5 32C5 17.0883 17.0883 5 32 5C46.9117 5 59 17.0883 59 32ZM25.0607 27.9393C24.4749 27.3536 23.5251 27.3536 22.9393 27.9393C22.3536 28.5251 22.3536 29.4749 22.9393 30.0607L30.9393 38.0607C31.5251 38.6464 32.4749 38.6464 33.0607 38.0607L41.0607 30.0607C41.6464 29.4749 41.6464 28.5251 41.0607 27.9393C40.4749 27.3536 39.5251 27.3536 38.9393 27.9393L32 34.8787L25.0607 27.9393Z"
+                            fill="#FCFBF7" />
+                        </svg>
+                      </button>
+                    </li>
+                    <li class="vote__users__item vote__users__item--14">
+                      <button data-action="update" data-params="{ \"alias\": \"vote\", \"data\": { \"offset\": \"${offset}\" }}" class="vote__users__wrapper">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M32 62C48.5685 62 62 48.5685 62 32C62 15.4315 48.5685 2 32 2C15.4315 2 2 15.4315 2 32C2 48.5685 15.4315 62 32 62ZM32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64ZM59 32C59 46.9117 46.9117 59 32 59C17.0883 59 5 46.9117 5 32C5 17.0883 17.0883 5 32 5C46.9117 5 59 17.0883 59 32ZM25.0607 27.9393C24.4749 27.3536 23.5251 27.3536 22.9393 27.9393C22.3536 28.5251 22.3536 29.4749 22.9393 30.0607L30.9393 38.0607C31.5251 38.6464 32.4749 38.6464 33.0607 38.0607L41.0607 30.0607C41.6464 29.4749 41.6464 28.5251 41.0607 27.9393C40.4749 27.3536 39.5251 27.3536 38.9393 27.9393L32 34.8787L25.0607 27.9393Z"
+                            fill="#FCFBF7" />
+                        </svg>
+                      </button>
+                    </li>
                   </ul>
-                </div>
               </div>
           </section>`
 }
@@ -323,4 +337,4 @@ window.renderTemplate = function (alias, data) {
   }
 }
 
-// document.body.innerHTML = window.renderTemplate("activity", data[9].data)
+document.body.innerHTML = window.renderTemplate("vote", data[2].data);
