@@ -55,6 +55,7 @@
       text-align: center;
       background-color: transparent;
       border: none;
+      outline: none;
 
       svg {
         path {
@@ -229,6 +230,7 @@
       text-align: center;
       background-color: transparent;
       border: none;
+      outline: none;
       border-radius: 6px;
 
       @include respond(phone-min) {
@@ -253,13 +255,13 @@
       }
 
       &--selected {
-        background: radial-gradient(circle at 50% 50%, #FFA300 0%, #2D1C00 100%);
-        box-shadow: inset 0px 6px 15px 0px #FFA200, inset -1px 1px 1px 0px #FFFFFF;
+        background: var(--button-vote-background--selected);
+        box-shadow: var(--button-vote-shadow--selected);
         position: relative;
 
         &:hover {
-          background: radial-gradient(circle at 50% 50%, #FFA300 0%, #2D1C00 100%);
-          box-shadow: inset 0px 6px 15px 0px #FFA200, inset -1px 1px 1px 0px #FFFFFF;
+          background: var(--button-vote-background--selected);
+          box-shadow: var(--button-vote-shadow--selected);
         }
       }
 
@@ -292,7 +294,7 @@
 
     &__name {
       display: block;
-      font-family: "Roboto 400";
+      font-family: "Roboto 500";
       font-size: 16px;
       width: 96px;
       margin: 6px auto 0 auto;

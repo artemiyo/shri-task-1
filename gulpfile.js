@@ -25,8 +25,6 @@ const options = assign({}, watchify.args, customOptions);
 const bundler = watchify(browserify(options))
 
 bundler.on('update', bundle)
-bundler.on('log', log.info)
-
 
 function bundle() {
     return bundler
@@ -91,11 +89,9 @@ function browserSync() {
         server: {
             baseDir: './build'
         },
-        port: 8080
+        port: 8080,
     });
 }
-
-
 
 watchFiles()
 
