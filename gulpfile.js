@@ -34,7 +34,7 @@ function bundle() {
         .pipe(source('./src/js/index.js'))
         .pipe(rename('stories.js'))
         .pipe(buffer())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(dest('./build'))
         .pipe(browsersync.stream())
 }
@@ -62,7 +62,7 @@ function css() {
             cascade: false
         }))
         .pipe(rename('stories.css'))
-        .pipe(cleanCSS())
+        // .pipe(cleanCSS())
         .pipe(dest('./build'))
         .pipe(browsersync.stream())
 }
